@@ -9,7 +9,7 @@ enum AppRoutes {
 
   const AppRoutes(this.name, this.path);
 
-  static String get initialLocation => AppRoutes.dashboard.path;
+  static String get initialLocation => AppRoutes.splash.path;
 
   static List<AppRoutes> get publicRoutes => [splash];
 
@@ -22,4 +22,3 @@ enum AppRoutes {
         });
   }
 }
-

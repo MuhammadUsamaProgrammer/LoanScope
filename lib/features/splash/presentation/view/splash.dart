@@ -11,6 +11,8 @@ class _SplashViewState extends State<SplashView>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
+  Timer? _timer;
+  bool _didNavigate = false;
 
   @override
   void initState() {
@@ -21,10 +23,18 @@ class _SplashViewState extends State<SplashView>
     );
     _animation = Tween<double>(begin: 0.0, end: 1.0).animate(_controller);
     _controller.forward();
+    _timer = Timer(const Duration(milliseconds: 1700), _navigateToDashboard);
+  }
+
+  void _navigateToDashboard() {
+    if (!mounted || _didNavigate) return;
+    _didNavigate = true;
+    context.go(AppRoutes.dashboard.path);
   }
 
   @override
   void dispose() {
+    _timer?.cancel();
     _controller.dispose();
     super.dispose();
   }
@@ -37,108 +47,184 @@ class _SplashViewState extends State<SplashView>
         height: double.infinity,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [Color(0xFF4A5568), Color(0xFF2D3748), Color(0xFF1A202C)],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color(0xFF0F766E), Color(0xFF14B8A6), Color(0xFF0B3D3A)],
           ),
         ),
         child: SafeArea(
-          child: Center(
-            child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  // App Title
-                  InterText(
-                    'LoanScope',
-                    size: 28,
-                    color: AppColors.white,
-                    fontWeight: FontWeight.w300,
-                    letterSpacing: 3,
-                  ),
-                  const SizedBox(height: 40),
-
-                  // Splash Card
-                  Container(
-                    width: double.infinity,
-                    constraints: const BoxConstraints(maxWidth: 400),
-                    decoration: BoxDecoration(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            child: Column(
+              children: [
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: TextButton(
+                    onPressed: _navigateToDashboard,
+                    child: const InterText(
+                      'Skip',
                       color: AppColors.white,
-                      borderRadius: BorderRadius.circular(8),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.2),
-                          blurRadius: 20,
-                          offset: const Offset(0, 10),
-                        ),
-                      ],
+                      size: 14,
+                      fontWeight: FontWeight.w600,
                     ),
-                    padding: const EdgeInsets.all(32),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        // Welcome text
-                        InterText(
-                          'Welcome to LoanScope',
-                          size: 20,
-                          color: AppColors.textColor,
-                          fontWeight: FontWeight.w500,
-                          textAlign: TextAlign.center,
-                        ),
-                        const SizedBox(height: 8),
-                        InterText(
-                          'Loading your experience...',
-                          size: 14,
-                          color: AppColors.color8A94A6,
-                          fontWeight: FontWeight.w400,
-                          textAlign: TextAlign.center,
-                        ),
-                        const SizedBox(height: 32),
-
-                        // Progress indicator
-                        AnimatedBuilder(
-                          animation: _animation,
-                          builder: (context, child) {
-                            return Column(
+                  ),
+                ),
+                Expanded(
+                  child: Center(
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          InterText(
+                            'LoanScope',
+                            size: 34,
+                            color: AppColors.white,
+                            fontWeight: FontWeight.w700,
+                            letterSpacing: 0.8,
+                          ),
+                          const SizedBox(height: 10),
+                          const InterText(
+                            'Your conversational AI for faster loan readiness',
+                            size: 14,
+                            color: AppColors.white,
+                            fontWeight: FontWeight.w400,
+                            textAlign: TextAlign.center,
+                            height: 1.4,
+                          ),
+                          const SizedBox(height: 28),
+                          Container(
+                            width: double.infinity,
+                            constraints: const BoxConstraints(maxWidth: 420),
+                            decoration: BoxDecoration(
+                              color: AppColors.white.withOpacity(0.96),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            padding: const EdgeInsets.all(22),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                SizedBox(
-                                  width: double.infinity,
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(8),
-                                    child: LinearProgressIndicator(
-                                      value: _animation.value,
-                                      minHeight: 8,
-                                      backgroundColor: AppColors.colorC1C7D0
-                                          .withOpacity(0.3),
-                                      valueColor:
-                                          const AlwaysStoppedAnimation<Color>(
-                                            AppColors.color3182CE,
-                                          ),
-                                    ),
-                                  ),
+                                const InterText(
+                                  'Preparing your smart eligibility workspace...',
+                                  size: 16,
+                                  color: AppColors.color1E293B,
+                                  fontWeight: FontWeight.w700,
+                                  height: 1.3,
                                 ),
-                                const SizedBox(height: 12),
-                                InterText(
-                                  '${(_animation.value * 100).toInt()}%',
-                                  size: 12,
-                                  color: AppColors.color8A94A6,
-                                  fontWeight: FontWeight.w500,
+                                const SizedBox(height: 14),
+                                _buildFeatureTile(
+                                  icon: Icons.chat_bubble_outline,
+                                  text:
+                                      'Chat-first flow with voice-ready interactions',
+                                ),
+                                const SizedBox(height: 8),
+                                _buildFeatureTile(
+                                  icon: Icons.speed,
+                                  text:
+                                      'Live LoanReady Score updates in real time',
+                                ),
+                                const SizedBox(height: 8),
+                                _buildFeatureTile(
+                                  icon: Icons.account_tree_outlined,
+                                  text:
+                                      'Gap analysis and personalized 30/60/90 roadmap',
+                                ),
+                                const SizedBox(height: 18),
+                                AnimatedBuilder(
+                                  animation: _animation,
+                                  builder: (context, child) {
+                                    return Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        ClipRRect(
+                                          borderRadius: BorderRadius.circular(
+                                            10,
+                                          ),
+                                          child: LinearProgressIndicator(
+                                            value: _animation.value,
+                                            minHeight: 9,
+                                            backgroundColor: AppColors
+                                                .colorC1C7D0
+                                                .withOpacity(0.3),
+                                            valueColor:
+                                                const AlwaysStoppedAnimation<
+                                                  Color
+                                                >(AppColors.primary),
+                                          ),
+                                        ),
+                                        const SizedBox(height: 8),
+                                        InterText(
+                                          '${(_animation.value * 100).toInt()}% loaded',
+                                          size: 12,
+                                          color: AppColors.color64748A,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ],
+                                    );
+                                  },
                                 ),
                               ],
-                            );
-                          },
-                        ),
-                      ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ],
-              ),
+                ),
+                const SizedBox(height: 16),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.white,
+                      foregroundColor: AppColors.color1E293B,
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                    ),
+                    onPressed: _navigateToDashboard,
+                    child: const InterText(
+                      'Start Eligibility Check',
+                      size: 14,
+                      fontWeight: FontWeight.w700,
+                      color: AppColors.color1E293B,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 18),
+              ],
             ),
           ),
         ),
       ),
     );
   }
-}
 
+  Widget _buildFeatureTile({required IconData icon, required String text}) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          height: 24,
+          width: 24,
+          decoration: BoxDecoration(
+            color: AppColors.colorECFDF5,
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Icon(icon, size: 14, color: AppColors.color10B981),
+        ),
+        const SizedBox(width: 10),
+        Expanded(
+          child: InterText(
+            text,
+            size: 12,
+            color: AppColors.color64748A,
+            fontWeight: FontWeight.w500,
+            height: 1.35,
+          ),
+        ),
+      ],
+    );
+  }
+}

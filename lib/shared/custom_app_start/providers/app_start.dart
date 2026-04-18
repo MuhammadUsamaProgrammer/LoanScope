@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../../loanscope.dart';
 import '../../../core/local/providers/shared_pref.dart';
+import '../../../loanscope.dart';
 
 part 'app_start.g.dart';
 
@@ -30,11 +30,9 @@ Future<void> appStartup(Ref ref) async {
         systemNavigationBarDividerColor: AppColors.colorF6F8FA,
       ),
     );
-    await Future.delayed(const Duration(seconds: 2));
   } catch (e, stack) {
     debugPrint('❌ App startup failed: $e');
     debugPrint('$stack');
     rethrow; // Let the app handle it (e.g., splash screen error state)
   }
 }
-

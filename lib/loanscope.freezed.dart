@@ -831,5 +831,1699 @@ String toString() {
 
 
 
-// dart format on
 
+/// @nodoc
+mixin _$DashboardEvaluationModel {
+
+ double get proposedEmi; double get totalObligation; double get foir; int get loanReadyScore; DashboardScoreBand get scoreBand; String get scoreTitle; List<DashboardGapItemModel> get gapItems; List<DashboardRoadmapModel> get roadmap;
+/// Create a copy of DashboardEvaluationModel
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DashboardEvaluationModelCopyWith<DashboardEvaluationModel> get copyWith => _$DashboardEvaluationModelCopyWithImpl<DashboardEvaluationModel>(this as DashboardEvaluationModel, _$identity);
+
+  /// Serializes this DashboardEvaluationModel to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DashboardEvaluationModel&&(identical(other.proposedEmi, proposedEmi) || other.proposedEmi == proposedEmi)&&(identical(other.totalObligation, totalObligation) || other.totalObligation == totalObligation)&&(identical(other.foir, foir) || other.foir == foir)&&(identical(other.loanReadyScore, loanReadyScore) || other.loanReadyScore == loanReadyScore)&&(identical(other.scoreBand, scoreBand) || other.scoreBand == scoreBand)&&(identical(other.scoreTitle, scoreTitle) || other.scoreTitle == scoreTitle)&&const DeepCollectionEquality().equals(other.gapItems, gapItems)&&const DeepCollectionEquality().equals(other.roadmap, roadmap));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,proposedEmi,totalObligation,foir,loanReadyScore,scoreBand,scoreTitle,const DeepCollectionEquality().hash(gapItems),const DeepCollectionEquality().hash(roadmap));
+
+@override
+String toString() {
+  return 'DashboardEvaluationModel(proposedEmi: $proposedEmi, totalObligation: $totalObligation, foir: $foir, loanReadyScore: $loanReadyScore, scoreBand: $scoreBand, scoreTitle: $scoreTitle, gapItems: $gapItems, roadmap: $roadmap)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $DashboardEvaluationModelCopyWith<$Res>  {
+  factory $DashboardEvaluationModelCopyWith(DashboardEvaluationModel value, $Res Function(DashboardEvaluationModel) _then) = _$DashboardEvaluationModelCopyWithImpl;
+@useResult
+$Res call({
+ double proposedEmi, double totalObligation, double foir, int loanReadyScore, DashboardScoreBand scoreBand, String scoreTitle, List<DashboardGapItemModel> gapItems, List<DashboardRoadmapModel> roadmap
+});
+
+
+
+
+}
+/// @nodoc
+class _$DashboardEvaluationModelCopyWithImpl<$Res>
+    implements $DashboardEvaluationModelCopyWith<$Res> {
+  _$DashboardEvaluationModelCopyWithImpl(this._self, this._then);
+
+  final DashboardEvaluationModel _self;
+  final $Res Function(DashboardEvaluationModel) _then;
+
+/// Create a copy of DashboardEvaluationModel
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? proposedEmi = null,Object? totalObligation = null,Object? foir = null,Object? loanReadyScore = null,Object? scoreBand = null,Object? scoreTitle = null,Object? gapItems = null,Object? roadmap = null,}) {
+  return _then(_self.copyWith(
+proposedEmi: null == proposedEmi ? _self.proposedEmi : proposedEmi // ignore: cast_nullable_to_non_nullable
+as double,totalObligation: null == totalObligation ? _self.totalObligation : totalObligation // ignore: cast_nullable_to_non_nullable
+as double,foir: null == foir ? _self.foir : foir // ignore: cast_nullable_to_non_nullable
+as double,loanReadyScore: null == loanReadyScore ? _self.loanReadyScore : loanReadyScore // ignore: cast_nullable_to_non_nullable
+as int,scoreBand: null == scoreBand ? _self.scoreBand : scoreBand // ignore: cast_nullable_to_non_nullable
+as DashboardScoreBand,scoreTitle: null == scoreTitle ? _self.scoreTitle : scoreTitle // ignore: cast_nullable_to_non_nullable
+as String,gapItems: null == gapItems ? _self.gapItems : gapItems // ignore: cast_nullable_to_non_nullable
+as List<DashboardGapItemModel>,roadmap: null == roadmap ? _self.roadmap : roadmap // ignore: cast_nullable_to_non_nullable
+as List<DashboardRoadmapModel>,
+  ));
+}
+
+}
+
+
+/// Adds pattern-matching-related methods to [DashboardEvaluationModel].
+extension DashboardEvaluationModelPatterns on DashboardEvaluationModel {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _DashboardEvaluationModel value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _DashboardEvaluationModel() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _DashboardEvaluationModel value)  $default,){
+final _that = this;
+switch (_that) {
+case _DashboardEvaluationModel():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _DashboardEvaluationModel value)?  $default,){
+final _that = this;
+switch (_that) {
+case _DashboardEvaluationModel() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( double proposedEmi,  double totalObligation,  double foir,  int loanReadyScore,  DashboardScoreBand scoreBand,  String scoreTitle,  List<DashboardGapItemModel> gapItems,  List<DashboardRoadmapModel> roadmap)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _DashboardEvaluationModel() when $default != null:
+return $default(_that.proposedEmi,_that.totalObligation,_that.foir,_that.loanReadyScore,_that.scoreBand,_that.scoreTitle,_that.gapItems,_that.roadmap);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( double proposedEmi,  double totalObligation,  double foir,  int loanReadyScore,  DashboardScoreBand scoreBand,  String scoreTitle,  List<DashboardGapItemModel> gapItems,  List<DashboardRoadmapModel> roadmap)  $default,) {final _that = this;
+switch (_that) {
+case _DashboardEvaluationModel():
+return $default(_that.proposedEmi,_that.totalObligation,_that.foir,_that.loanReadyScore,_that.scoreBand,_that.scoreTitle,_that.gapItems,_that.roadmap);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( double proposedEmi,  double totalObligation,  double foir,  int loanReadyScore,  DashboardScoreBand scoreBand,  String scoreTitle,  List<DashboardGapItemModel> gapItems,  List<DashboardRoadmapModel> roadmap)?  $default,) {final _that = this;
+switch (_that) {
+case _DashboardEvaluationModel() when $default != null:
+return $default(_that.proposedEmi,_that.totalObligation,_that.foir,_that.loanReadyScore,_that.scoreBand,_that.scoreTitle,_that.gapItems,_that.roadmap);case _:
+  return null;
+
+}
+}
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class _DashboardEvaluationModel implements DashboardEvaluationModel {
+  const _DashboardEvaluationModel({required this.proposedEmi, required this.totalObligation, required this.foir, required this.loanReadyScore, required this.scoreBand, required this.scoreTitle, final  List<DashboardGapItemModel> gapItems = const <DashboardGapItemModel>[], final  List<DashboardRoadmapModel> roadmap = const <DashboardRoadmapModel>[]}): _gapItems = gapItems,_roadmap = roadmap;
+  factory _DashboardEvaluationModel.fromJson(Map<String, dynamic> json) => _$DashboardEvaluationModelFromJson(json);
+
+@override final  double proposedEmi;
+@override final  double totalObligation;
+@override final  double foir;
+@override final  int loanReadyScore;
+@override final  DashboardScoreBand scoreBand;
+@override final  String scoreTitle;
+ final  List<DashboardGapItemModel> _gapItems;
+@override@JsonKey() List<DashboardGapItemModel> get gapItems {
+  if (_gapItems is EqualUnmodifiableListView) return _gapItems;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_gapItems);
+}
+
+ final  List<DashboardRoadmapModel> _roadmap;
+@override@JsonKey() List<DashboardRoadmapModel> get roadmap {
+  if (_roadmap is EqualUnmodifiableListView) return _roadmap;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_roadmap);
+}
+
+
+/// Create a copy of DashboardEvaluationModel
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$DashboardEvaluationModelCopyWith<_DashboardEvaluationModel> get copyWith => __$DashboardEvaluationModelCopyWithImpl<_DashboardEvaluationModel>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$DashboardEvaluationModelToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DashboardEvaluationModel&&(identical(other.proposedEmi, proposedEmi) || other.proposedEmi == proposedEmi)&&(identical(other.totalObligation, totalObligation) || other.totalObligation == totalObligation)&&(identical(other.foir, foir) || other.foir == foir)&&(identical(other.loanReadyScore, loanReadyScore) || other.loanReadyScore == loanReadyScore)&&(identical(other.scoreBand, scoreBand) || other.scoreBand == scoreBand)&&(identical(other.scoreTitle, scoreTitle) || other.scoreTitle == scoreTitle)&&const DeepCollectionEquality().equals(other._gapItems, _gapItems)&&const DeepCollectionEquality().equals(other._roadmap, _roadmap));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,proposedEmi,totalObligation,foir,loanReadyScore,scoreBand,scoreTitle,const DeepCollectionEquality().hash(_gapItems),const DeepCollectionEquality().hash(_roadmap));
+
+@override
+String toString() {
+  return 'DashboardEvaluationModel(proposedEmi: $proposedEmi, totalObligation: $totalObligation, foir: $foir, loanReadyScore: $loanReadyScore, scoreBand: $scoreBand, scoreTitle: $scoreTitle, gapItems: $gapItems, roadmap: $roadmap)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$DashboardEvaluationModelCopyWith<$Res> implements $DashboardEvaluationModelCopyWith<$Res> {
+  factory _$DashboardEvaluationModelCopyWith(_DashboardEvaluationModel value, $Res Function(_DashboardEvaluationModel) _then) = __$DashboardEvaluationModelCopyWithImpl;
+@override @useResult
+$Res call({
+ double proposedEmi, double totalObligation, double foir, int loanReadyScore, DashboardScoreBand scoreBand, String scoreTitle, List<DashboardGapItemModel> gapItems, List<DashboardRoadmapModel> roadmap
+});
+
+
+
+
+}
+/// @nodoc
+class __$DashboardEvaluationModelCopyWithImpl<$Res>
+    implements _$DashboardEvaluationModelCopyWith<$Res> {
+  __$DashboardEvaluationModelCopyWithImpl(this._self, this._then);
+
+  final _DashboardEvaluationModel _self;
+  final $Res Function(_DashboardEvaluationModel) _then;
+
+/// Create a copy of DashboardEvaluationModel
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? proposedEmi = null,Object? totalObligation = null,Object? foir = null,Object? loanReadyScore = null,Object? scoreBand = null,Object? scoreTitle = null,Object? gapItems = null,Object? roadmap = null,}) {
+  return _then(_DashboardEvaluationModel(
+proposedEmi: null == proposedEmi ? _self.proposedEmi : proposedEmi // ignore: cast_nullable_to_non_nullable
+as double,totalObligation: null == totalObligation ? _self.totalObligation : totalObligation // ignore: cast_nullable_to_non_nullable
+as double,foir: null == foir ? _self.foir : foir // ignore: cast_nullable_to_non_nullable
+as double,loanReadyScore: null == loanReadyScore ? _self.loanReadyScore : loanReadyScore // ignore: cast_nullable_to_non_nullable
+as int,scoreBand: null == scoreBand ? _self.scoreBand : scoreBand // ignore: cast_nullable_to_non_nullable
+as DashboardScoreBand,scoreTitle: null == scoreTitle ? _self.scoreTitle : scoreTitle // ignore: cast_nullable_to_non_nullable
+as String,gapItems: null == gapItems ? _self._gapItems : gapItems // ignore: cast_nullable_to_non_nullable
+as List<DashboardGapItemModel>,roadmap: null == roadmap ? _self._roadmap : roadmap // ignore: cast_nullable_to_non_nullable
+as List<DashboardRoadmapModel>,
+  ));
+}
+
+
+}
+
+
+/// @nodoc
+mixin _$DashboardGapItemModel {
+
+ String get title; String get currentValue; String get targetValue; String get suggestion;
+/// Create a copy of DashboardGapItemModel
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DashboardGapItemModelCopyWith<DashboardGapItemModel> get copyWith => _$DashboardGapItemModelCopyWithImpl<DashboardGapItemModel>(this as DashboardGapItemModel, _$identity);
+
+  /// Serializes this DashboardGapItemModel to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DashboardGapItemModel&&(identical(other.title, title) || other.title == title)&&(identical(other.currentValue, currentValue) || other.currentValue == currentValue)&&(identical(other.targetValue, targetValue) || other.targetValue == targetValue)&&(identical(other.suggestion, suggestion) || other.suggestion == suggestion));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,title,currentValue,targetValue,suggestion);
+
+@override
+String toString() {
+  return 'DashboardGapItemModel(title: $title, currentValue: $currentValue, targetValue: $targetValue, suggestion: $suggestion)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $DashboardGapItemModelCopyWith<$Res>  {
+  factory $DashboardGapItemModelCopyWith(DashboardGapItemModel value, $Res Function(DashboardGapItemModel) _then) = _$DashboardGapItemModelCopyWithImpl;
+@useResult
+$Res call({
+ String title, String currentValue, String targetValue, String suggestion
+});
+
+
+
+
+}
+/// @nodoc
+class _$DashboardGapItemModelCopyWithImpl<$Res>
+    implements $DashboardGapItemModelCopyWith<$Res> {
+  _$DashboardGapItemModelCopyWithImpl(this._self, this._then);
+
+  final DashboardGapItemModel _self;
+  final $Res Function(DashboardGapItemModel) _then;
+
+/// Create a copy of DashboardGapItemModel
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? title = null,Object? currentValue = null,Object? targetValue = null,Object? suggestion = null,}) {
+  return _then(_self.copyWith(
+title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
+as String,currentValue: null == currentValue ? _self.currentValue : currentValue // ignore: cast_nullable_to_non_nullable
+as String,targetValue: null == targetValue ? _self.targetValue : targetValue // ignore: cast_nullable_to_non_nullable
+as String,suggestion: null == suggestion ? _self.suggestion : suggestion // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+}
+
+
+/// Adds pattern-matching-related methods to [DashboardGapItemModel].
+extension DashboardGapItemModelPatterns on DashboardGapItemModel {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _DashboardGapItemModel value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _DashboardGapItemModel() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _DashboardGapItemModel value)  $default,){
+final _that = this;
+switch (_that) {
+case _DashboardGapItemModel():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _DashboardGapItemModel value)?  $default,){
+final _that = this;
+switch (_that) {
+case _DashboardGapItemModel() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String title,  String currentValue,  String targetValue,  String suggestion)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _DashboardGapItemModel() when $default != null:
+return $default(_that.title,_that.currentValue,_that.targetValue,_that.suggestion);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String title,  String currentValue,  String targetValue,  String suggestion)  $default,) {final _that = this;
+switch (_that) {
+case _DashboardGapItemModel():
+return $default(_that.title,_that.currentValue,_that.targetValue,_that.suggestion);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String title,  String currentValue,  String targetValue,  String suggestion)?  $default,) {final _that = this;
+switch (_that) {
+case _DashboardGapItemModel() when $default != null:
+return $default(_that.title,_that.currentValue,_that.targetValue,_that.suggestion);case _:
+  return null;
+
+}
+}
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class _DashboardGapItemModel implements DashboardGapItemModel {
+  const _DashboardGapItemModel({required this.title, required this.currentValue, required this.targetValue, required this.suggestion});
+  factory _DashboardGapItemModel.fromJson(Map<String, dynamic> json) => _$DashboardGapItemModelFromJson(json);
+
+@override final  String title;
+@override final  String currentValue;
+@override final  String targetValue;
+@override final  String suggestion;
+
+/// Create a copy of DashboardGapItemModel
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$DashboardGapItemModelCopyWith<_DashboardGapItemModel> get copyWith => __$DashboardGapItemModelCopyWithImpl<_DashboardGapItemModel>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$DashboardGapItemModelToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DashboardGapItemModel&&(identical(other.title, title) || other.title == title)&&(identical(other.currentValue, currentValue) || other.currentValue == currentValue)&&(identical(other.targetValue, targetValue) || other.targetValue == targetValue)&&(identical(other.suggestion, suggestion) || other.suggestion == suggestion));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,title,currentValue,targetValue,suggestion);
+
+@override
+String toString() {
+  return 'DashboardGapItemModel(title: $title, currentValue: $currentValue, targetValue: $targetValue, suggestion: $suggestion)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$DashboardGapItemModelCopyWith<$Res> implements $DashboardGapItemModelCopyWith<$Res> {
+  factory _$DashboardGapItemModelCopyWith(_DashboardGapItemModel value, $Res Function(_DashboardGapItemModel) _then) = __$DashboardGapItemModelCopyWithImpl;
+@override @useResult
+$Res call({
+ String title, String currentValue, String targetValue, String suggestion
+});
+
+
+
+
+}
+/// @nodoc
+class __$DashboardGapItemModelCopyWithImpl<$Res>
+    implements _$DashboardGapItemModelCopyWith<$Res> {
+  __$DashboardGapItemModelCopyWithImpl(this._self, this._then);
+
+  final _DashboardGapItemModel _self;
+  final $Res Function(_DashboardGapItemModel) _then;
+
+/// Create a copy of DashboardGapItemModel
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? title = null,Object? currentValue = null,Object? targetValue = null,Object? suggestion = null,}) {
+  return _then(_DashboardGapItemModel(
+title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
+as String,currentValue: null == currentValue ? _self.currentValue : currentValue // ignore: cast_nullable_to_non_nullable
+as String,targetValue: null == targetValue ? _self.targetValue : targetValue // ignore: cast_nullable_to_non_nullable
+as String,suggestion: null == suggestion ? _self.suggestion : suggestion // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+
+/// @nodoc
+mixin _$DashboardProfileModel {
+
+ double get monthlyIncome; double get existingEmi; double get desiredLoanAmount; double get tenureMonths; double get savingsBuffer;
+/// Create a copy of DashboardProfileModel
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DashboardProfileModelCopyWith<DashboardProfileModel> get copyWith => _$DashboardProfileModelCopyWithImpl<DashboardProfileModel>(this as DashboardProfileModel, _$identity);
+
+  /// Serializes this DashboardProfileModel to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DashboardProfileModel&&(identical(other.monthlyIncome, monthlyIncome) || other.monthlyIncome == monthlyIncome)&&(identical(other.existingEmi, existingEmi) || other.existingEmi == existingEmi)&&(identical(other.desiredLoanAmount, desiredLoanAmount) || other.desiredLoanAmount == desiredLoanAmount)&&(identical(other.tenureMonths, tenureMonths) || other.tenureMonths == tenureMonths)&&(identical(other.savingsBuffer, savingsBuffer) || other.savingsBuffer == savingsBuffer));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,monthlyIncome,existingEmi,desiredLoanAmount,tenureMonths,savingsBuffer);
+
+@override
+String toString() {
+  return 'DashboardProfileModel(monthlyIncome: $monthlyIncome, existingEmi: $existingEmi, desiredLoanAmount: $desiredLoanAmount, tenureMonths: $tenureMonths, savingsBuffer: $savingsBuffer)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $DashboardProfileModelCopyWith<$Res>  {
+  factory $DashboardProfileModelCopyWith(DashboardProfileModel value, $Res Function(DashboardProfileModel) _then) = _$DashboardProfileModelCopyWithImpl;
+@useResult
+$Res call({
+ double monthlyIncome, double existingEmi, double desiredLoanAmount, double tenureMonths, double savingsBuffer
+});
+
+
+
+
+}
+/// @nodoc
+class _$DashboardProfileModelCopyWithImpl<$Res>
+    implements $DashboardProfileModelCopyWith<$Res> {
+  _$DashboardProfileModelCopyWithImpl(this._self, this._then);
+
+  final DashboardProfileModel _self;
+  final $Res Function(DashboardProfileModel) _then;
+
+/// Create a copy of DashboardProfileModel
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? monthlyIncome = null,Object? existingEmi = null,Object? desiredLoanAmount = null,Object? tenureMonths = null,Object? savingsBuffer = null,}) {
+  return _then(_self.copyWith(
+monthlyIncome: null == monthlyIncome ? _self.monthlyIncome : monthlyIncome // ignore: cast_nullable_to_non_nullable
+as double,existingEmi: null == existingEmi ? _self.existingEmi : existingEmi // ignore: cast_nullable_to_non_nullable
+as double,desiredLoanAmount: null == desiredLoanAmount ? _self.desiredLoanAmount : desiredLoanAmount // ignore: cast_nullable_to_non_nullable
+as double,tenureMonths: null == tenureMonths ? _self.tenureMonths : tenureMonths // ignore: cast_nullable_to_non_nullable
+as double,savingsBuffer: null == savingsBuffer ? _self.savingsBuffer : savingsBuffer // ignore: cast_nullable_to_non_nullable
+as double,
+  ));
+}
+
+}
+
+
+/// Adds pattern-matching-related methods to [DashboardProfileModel].
+extension DashboardProfileModelPatterns on DashboardProfileModel {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _DashboardProfileModel value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _DashboardProfileModel() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _DashboardProfileModel value)  $default,){
+final _that = this;
+switch (_that) {
+case _DashboardProfileModel():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _DashboardProfileModel value)?  $default,){
+final _that = this;
+switch (_that) {
+case _DashboardProfileModel() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( double monthlyIncome,  double existingEmi,  double desiredLoanAmount,  double tenureMonths,  double savingsBuffer)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _DashboardProfileModel() when $default != null:
+return $default(_that.monthlyIncome,_that.existingEmi,_that.desiredLoanAmount,_that.tenureMonths,_that.savingsBuffer);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( double monthlyIncome,  double existingEmi,  double desiredLoanAmount,  double tenureMonths,  double savingsBuffer)  $default,) {final _that = this;
+switch (_that) {
+case _DashboardProfileModel():
+return $default(_that.monthlyIncome,_that.existingEmi,_that.desiredLoanAmount,_that.tenureMonths,_that.savingsBuffer);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( double monthlyIncome,  double existingEmi,  double desiredLoanAmount,  double tenureMonths,  double savingsBuffer)?  $default,) {final _that = this;
+switch (_that) {
+case _DashboardProfileModel() when $default != null:
+return $default(_that.monthlyIncome,_that.existingEmi,_that.desiredLoanAmount,_that.tenureMonths,_that.savingsBuffer);case _:
+  return null;
+
+}
+}
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class _DashboardProfileModel implements DashboardProfileModel {
+  const _DashboardProfileModel({this.monthlyIncome = 65000, this.existingEmi = 14000, this.desiredLoanAmount = 500000, this.tenureMonths = 36, this.savingsBuffer = 50000});
+  factory _DashboardProfileModel.fromJson(Map<String, dynamic> json) => _$DashboardProfileModelFromJson(json);
+
+@override@JsonKey() final  double monthlyIncome;
+@override@JsonKey() final  double existingEmi;
+@override@JsonKey() final  double desiredLoanAmount;
+@override@JsonKey() final  double tenureMonths;
+@override@JsonKey() final  double savingsBuffer;
+
+/// Create a copy of DashboardProfileModel
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$DashboardProfileModelCopyWith<_DashboardProfileModel> get copyWith => __$DashboardProfileModelCopyWithImpl<_DashboardProfileModel>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$DashboardProfileModelToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DashboardProfileModel&&(identical(other.monthlyIncome, monthlyIncome) || other.monthlyIncome == monthlyIncome)&&(identical(other.existingEmi, existingEmi) || other.existingEmi == existingEmi)&&(identical(other.desiredLoanAmount, desiredLoanAmount) || other.desiredLoanAmount == desiredLoanAmount)&&(identical(other.tenureMonths, tenureMonths) || other.tenureMonths == tenureMonths)&&(identical(other.savingsBuffer, savingsBuffer) || other.savingsBuffer == savingsBuffer));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,monthlyIncome,existingEmi,desiredLoanAmount,tenureMonths,savingsBuffer);
+
+@override
+String toString() {
+  return 'DashboardProfileModel(monthlyIncome: $monthlyIncome, existingEmi: $existingEmi, desiredLoanAmount: $desiredLoanAmount, tenureMonths: $tenureMonths, savingsBuffer: $savingsBuffer)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$DashboardProfileModelCopyWith<$Res> implements $DashboardProfileModelCopyWith<$Res> {
+  factory _$DashboardProfileModelCopyWith(_DashboardProfileModel value, $Res Function(_DashboardProfileModel) _then) = __$DashboardProfileModelCopyWithImpl;
+@override @useResult
+$Res call({
+ double monthlyIncome, double existingEmi, double desiredLoanAmount, double tenureMonths, double savingsBuffer
+});
+
+
+
+
+}
+/// @nodoc
+class __$DashboardProfileModelCopyWithImpl<$Res>
+    implements _$DashboardProfileModelCopyWith<$Res> {
+  __$DashboardProfileModelCopyWithImpl(this._self, this._then);
+
+  final _DashboardProfileModel _self;
+  final $Res Function(_DashboardProfileModel) _then;
+
+/// Create a copy of DashboardProfileModel
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? monthlyIncome = null,Object? existingEmi = null,Object? desiredLoanAmount = null,Object? tenureMonths = null,Object? savingsBuffer = null,}) {
+  return _then(_DashboardProfileModel(
+monthlyIncome: null == monthlyIncome ? _self.monthlyIncome : monthlyIncome // ignore: cast_nullable_to_non_nullable
+as double,existingEmi: null == existingEmi ? _self.existingEmi : existingEmi // ignore: cast_nullable_to_non_nullable
+as double,desiredLoanAmount: null == desiredLoanAmount ? _self.desiredLoanAmount : desiredLoanAmount // ignore: cast_nullable_to_non_nullable
+as double,tenureMonths: null == tenureMonths ? _self.tenureMonths : tenureMonths // ignore: cast_nullable_to_non_nullable
+as double,savingsBuffer: null == savingsBuffer ? _self.savingsBuffer : savingsBuffer // ignore: cast_nullable_to_non_nullable
+as double,
+  ));
+}
+
+
+}
+
+
+/// @nodoc
+mixin _$DashboardRoadmapModel {
+
+ String get phase; List<String> get steps;
+/// Create a copy of DashboardRoadmapModel
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DashboardRoadmapModelCopyWith<DashboardRoadmapModel> get copyWith => _$DashboardRoadmapModelCopyWithImpl<DashboardRoadmapModel>(this as DashboardRoadmapModel, _$identity);
+
+  /// Serializes this DashboardRoadmapModel to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DashboardRoadmapModel&&(identical(other.phase, phase) || other.phase == phase)&&const DeepCollectionEquality().equals(other.steps, steps));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,phase,const DeepCollectionEquality().hash(steps));
+
+@override
+String toString() {
+  return 'DashboardRoadmapModel(phase: $phase, steps: $steps)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $DashboardRoadmapModelCopyWith<$Res>  {
+  factory $DashboardRoadmapModelCopyWith(DashboardRoadmapModel value, $Res Function(DashboardRoadmapModel) _then) = _$DashboardRoadmapModelCopyWithImpl;
+@useResult
+$Res call({
+ String phase, List<String> steps
+});
+
+
+
+
+}
+/// @nodoc
+class _$DashboardRoadmapModelCopyWithImpl<$Res>
+    implements $DashboardRoadmapModelCopyWith<$Res> {
+  _$DashboardRoadmapModelCopyWithImpl(this._self, this._then);
+
+  final DashboardRoadmapModel _self;
+  final $Res Function(DashboardRoadmapModel) _then;
+
+/// Create a copy of DashboardRoadmapModel
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? phase = null,Object? steps = null,}) {
+  return _then(_self.copyWith(
+phase: null == phase ? _self.phase : phase // ignore: cast_nullable_to_non_nullable
+as String,steps: null == steps ? _self.steps : steps // ignore: cast_nullable_to_non_nullable
+as List<String>,
+  ));
+}
+
+}
+
+
+/// Adds pattern-matching-related methods to [DashboardRoadmapModel].
+extension DashboardRoadmapModelPatterns on DashboardRoadmapModel {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _DashboardRoadmapModel value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _DashboardRoadmapModel() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _DashboardRoadmapModel value)  $default,){
+final _that = this;
+switch (_that) {
+case _DashboardRoadmapModel():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _DashboardRoadmapModel value)?  $default,){
+final _that = this;
+switch (_that) {
+case _DashboardRoadmapModel() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String phase,  List<String> steps)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _DashboardRoadmapModel() when $default != null:
+return $default(_that.phase,_that.steps);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String phase,  List<String> steps)  $default,) {final _that = this;
+switch (_that) {
+case _DashboardRoadmapModel():
+return $default(_that.phase,_that.steps);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String phase,  List<String> steps)?  $default,) {final _that = this;
+switch (_that) {
+case _DashboardRoadmapModel() when $default != null:
+return $default(_that.phase,_that.steps);case _:
+  return null;
+
+}
+}
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class _DashboardRoadmapModel implements DashboardRoadmapModel {
+  const _DashboardRoadmapModel({required this.phase, final  List<String> steps = const <String>[]}): _steps = steps;
+  factory _DashboardRoadmapModel.fromJson(Map<String, dynamic> json) => _$DashboardRoadmapModelFromJson(json);
+
+@override final  String phase;
+ final  List<String> _steps;
+@override@JsonKey() List<String> get steps {
+  if (_steps is EqualUnmodifiableListView) return _steps;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_steps);
+}
+
+
+/// Create a copy of DashboardRoadmapModel
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$DashboardRoadmapModelCopyWith<_DashboardRoadmapModel> get copyWith => __$DashboardRoadmapModelCopyWithImpl<_DashboardRoadmapModel>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$DashboardRoadmapModelToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DashboardRoadmapModel&&(identical(other.phase, phase) || other.phase == phase)&&const DeepCollectionEquality().equals(other._steps, _steps));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,phase,const DeepCollectionEquality().hash(_steps));
+
+@override
+String toString() {
+  return 'DashboardRoadmapModel(phase: $phase, steps: $steps)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$DashboardRoadmapModelCopyWith<$Res> implements $DashboardRoadmapModelCopyWith<$Res> {
+  factory _$DashboardRoadmapModelCopyWith(_DashboardRoadmapModel value, $Res Function(_DashboardRoadmapModel) _then) = __$DashboardRoadmapModelCopyWithImpl;
+@override @useResult
+$Res call({
+ String phase, List<String> steps
+});
+
+
+
+
+}
+/// @nodoc
+class __$DashboardRoadmapModelCopyWithImpl<$Res>
+    implements _$DashboardRoadmapModelCopyWith<$Res> {
+  __$DashboardRoadmapModelCopyWithImpl(this._self, this._then);
+
+  final _DashboardRoadmapModel _self;
+  final $Res Function(_DashboardRoadmapModel) _then;
+
+/// Create a copy of DashboardRoadmapModel
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? phase = null,Object? steps = null,}) {
+  return _then(_DashboardRoadmapModel(
+phase: null == phase ? _self.phase : phase // ignore: cast_nullable_to_non_nullable
+as String,steps: null == steps ? _self._steps : steps // ignore: cast_nullable_to_non_nullable
+as List<String>,
+  ));
+}
+
+
+}
+
+
+/// @nodoc
+mixin _$DashboardScenarioModel {
+
+ DashboardScenarioType get type; String get title; String? get description;
+/// Create a copy of DashboardScenarioModel
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DashboardScenarioModelCopyWith<DashboardScenarioModel> get copyWith => _$DashboardScenarioModelCopyWithImpl<DashboardScenarioModel>(this as DashboardScenarioModel, _$identity);
+
+  /// Serializes this DashboardScenarioModel to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DashboardScenarioModel&&(identical(other.type, type) || other.type == type)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,type,title,description);
+
+@override
+String toString() {
+  return 'DashboardScenarioModel(type: $type, title: $title, description: $description)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $DashboardScenarioModelCopyWith<$Res>  {
+  factory $DashboardScenarioModelCopyWith(DashboardScenarioModel value, $Res Function(DashboardScenarioModel) _then) = _$DashboardScenarioModelCopyWithImpl;
+@useResult
+$Res call({
+ DashboardScenarioType type, String title, String? description
+});
+
+
+
+
+}
+/// @nodoc
+class _$DashboardScenarioModelCopyWithImpl<$Res>
+    implements $DashboardScenarioModelCopyWith<$Res> {
+  _$DashboardScenarioModelCopyWithImpl(this._self, this._then);
+
+  final DashboardScenarioModel _self;
+  final $Res Function(DashboardScenarioModel) _then;
+
+/// Create a copy of DashboardScenarioModel
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? title = null,Object? description = freezed,}) {
+  return _then(_self.copyWith(
+type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
+as DashboardScenarioType,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
+as String,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
+}
+
+
+/// Adds pattern-matching-related methods to [DashboardScenarioModel].
+extension DashboardScenarioModelPatterns on DashboardScenarioModel {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _DashboardScenarioModel value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _DashboardScenarioModel() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _DashboardScenarioModel value)  $default,){
+final _that = this;
+switch (_that) {
+case _DashboardScenarioModel():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _DashboardScenarioModel value)?  $default,){
+final _that = this;
+switch (_that) {
+case _DashboardScenarioModel() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( DashboardScenarioType type,  String title,  String? description)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _DashboardScenarioModel() when $default != null:
+return $default(_that.type,_that.title,_that.description);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( DashboardScenarioType type,  String title,  String? description)  $default,) {final _that = this;
+switch (_that) {
+case _DashboardScenarioModel():
+return $default(_that.type,_that.title,_that.description);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( DashboardScenarioType type,  String title,  String? description)?  $default,) {final _that = this;
+switch (_that) {
+case _DashboardScenarioModel() when $default != null:
+return $default(_that.type,_that.title,_that.description);case _:
+  return null;
+
+}
+}
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class _DashboardScenarioModel implements DashboardScenarioModel {
+  const _DashboardScenarioModel({required this.type, required this.title, this.description});
+  factory _DashboardScenarioModel.fromJson(Map<String, dynamic> json) => _$DashboardScenarioModelFromJson(json);
+
+@override final  DashboardScenarioType type;
+@override final  String title;
+@override final  String? description;
+
+/// Create a copy of DashboardScenarioModel
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$DashboardScenarioModelCopyWith<_DashboardScenarioModel> get copyWith => __$DashboardScenarioModelCopyWithImpl<_DashboardScenarioModel>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$DashboardScenarioModelToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DashboardScenarioModel&&(identical(other.type, type) || other.type == type)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,type,title,description);
+
+@override
+String toString() {
+  return 'DashboardScenarioModel(type: $type, title: $title, description: $description)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$DashboardScenarioModelCopyWith<$Res> implements $DashboardScenarioModelCopyWith<$Res> {
+  factory _$DashboardScenarioModelCopyWith(_DashboardScenarioModel value, $Res Function(_DashboardScenarioModel) _then) = __$DashboardScenarioModelCopyWithImpl;
+@override @useResult
+$Res call({
+ DashboardScenarioType type, String title, String? description
+});
+
+
+
+
+}
+/// @nodoc
+class __$DashboardScenarioModelCopyWithImpl<$Res>
+    implements _$DashboardScenarioModelCopyWith<$Res> {
+  __$DashboardScenarioModelCopyWithImpl(this._self, this._then);
+
+  final _DashboardScenarioModel _self;
+  final $Res Function(_DashboardScenarioModel) _then;
+
+/// Create a copy of DashboardScenarioModel
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? title = null,Object? description = freezed,}) {
+  return _then(_DashboardScenarioModel(
+type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
+as DashboardScenarioType,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
+as String,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
+
+}
+
+
+/// @nodoc
+mixin _$DashboardStateModel {
+
+ DashboardProfileModel get profile; DashboardEvaluationModel get evaluation; List<DashboardScenarioModel> get scenarios;
+/// Create a copy of DashboardStateModel
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DashboardStateModelCopyWith<DashboardStateModel> get copyWith => _$DashboardStateModelCopyWithImpl<DashboardStateModel>(this as DashboardStateModel, _$identity);
+
+  /// Serializes this DashboardStateModel to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DashboardStateModel&&(identical(other.profile, profile) || other.profile == profile)&&(identical(other.evaluation, evaluation) || other.evaluation == evaluation)&&const DeepCollectionEquality().equals(other.scenarios, scenarios));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,profile,evaluation,const DeepCollectionEquality().hash(scenarios));
+
+@override
+String toString() {
+  return 'DashboardStateModel(profile: $profile, evaluation: $evaluation, scenarios: $scenarios)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $DashboardStateModelCopyWith<$Res>  {
+  factory $DashboardStateModelCopyWith(DashboardStateModel value, $Res Function(DashboardStateModel) _then) = _$DashboardStateModelCopyWithImpl;
+@useResult
+$Res call({
+ DashboardProfileModel profile, DashboardEvaluationModel evaluation, List<DashboardScenarioModel> scenarios
+});
+
+
+$DashboardProfileModelCopyWith<$Res> get profile;$DashboardEvaluationModelCopyWith<$Res> get evaluation;
+
+}
+/// @nodoc
+class _$DashboardStateModelCopyWithImpl<$Res>
+    implements $DashboardStateModelCopyWith<$Res> {
+  _$DashboardStateModelCopyWithImpl(this._self, this._then);
+
+  final DashboardStateModel _self;
+  final $Res Function(DashboardStateModel) _then;
+
+/// Create a copy of DashboardStateModel
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? profile = null,Object? evaluation = null,Object? scenarios = null,}) {
+  return _then(_self.copyWith(
+profile: null == profile ? _self.profile : profile // ignore: cast_nullable_to_non_nullable
+as DashboardProfileModel,evaluation: null == evaluation ? _self.evaluation : evaluation // ignore: cast_nullable_to_non_nullable
+as DashboardEvaluationModel,scenarios: null == scenarios ? _self.scenarios : scenarios // ignore: cast_nullable_to_non_nullable
+as List<DashboardScenarioModel>,
+  ));
+}
+/// Create a copy of DashboardStateModel
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$DashboardProfileModelCopyWith<$Res> get profile {
+  
+  return $DashboardProfileModelCopyWith<$Res>(_self.profile, (value) {
+    return _then(_self.copyWith(profile: value));
+  });
+}/// Create a copy of DashboardStateModel
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$DashboardEvaluationModelCopyWith<$Res> get evaluation {
+  
+  return $DashboardEvaluationModelCopyWith<$Res>(_self.evaluation, (value) {
+    return _then(_self.copyWith(evaluation: value));
+  });
+}
+}
+
+
+/// Adds pattern-matching-related methods to [DashboardStateModel].
+extension DashboardStateModelPatterns on DashboardStateModel {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _DashboardStateModel value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _DashboardStateModel() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _DashboardStateModel value)  $default,){
+final _that = this;
+switch (_that) {
+case _DashboardStateModel():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _DashboardStateModel value)?  $default,){
+final _that = this;
+switch (_that) {
+case _DashboardStateModel() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( DashboardProfileModel profile,  DashboardEvaluationModel evaluation,  List<DashboardScenarioModel> scenarios)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _DashboardStateModel() when $default != null:
+return $default(_that.profile,_that.evaluation,_that.scenarios);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( DashboardProfileModel profile,  DashboardEvaluationModel evaluation,  List<DashboardScenarioModel> scenarios)  $default,) {final _that = this;
+switch (_that) {
+case _DashboardStateModel():
+return $default(_that.profile,_that.evaluation,_that.scenarios);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( DashboardProfileModel profile,  DashboardEvaluationModel evaluation,  List<DashboardScenarioModel> scenarios)?  $default,) {final _that = this;
+switch (_that) {
+case _DashboardStateModel() when $default != null:
+return $default(_that.profile,_that.evaluation,_that.scenarios);case _:
+  return null;
+
+}
+}
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class _DashboardStateModel implements DashboardStateModel {
+  const _DashboardStateModel({required this.profile, required this.evaluation, final  List<DashboardScenarioModel> scenarios = const <DashboardScenarioModel>[]}): _scenarios = scenarios;
+  factory _DashboardStateModel.fromJson(Map<String, dynamic> json) => _$DashboardStateModelFromJson(json);
+
+@override final  DashboardProfileModel profile;
+@override final  DashboardEvaluationModel evaluation;
+ final  List<DashboardScenarioModel> _scenarios;
+@override@JsonKey() List<DashboardScenarioModel> get scenarios {
+  if (_scenarios is EqualUnmodifiableListView) return _scenarios;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_scenarios);
+}
+
+
+/// Create a copy of DashboardStateModel
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$DashboardStateModelCopyWith<_DashboardStateModel> get copyWith => __$DashboardStateModelCopyWithImpl<_DashboardStateModel>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$DashboardStateModelToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DashboardStateModel&&(identical(other.profile, profile) || other.profile == profile)&&(identical(other.evaluation, evaluation) || other.evaluation == evaluation)&&const DeepCollectionEquality().equals(other._scenarios, _scenarios));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,profile,evaluation,const DeepCollectionEquality().hash(_scenarios));
+
+@override
+String toString() {
+  return 'DashboardStateModel(profile: $profile, evaluation: $evaluation, scenarios: $scenarios)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$DashboardStateModelCopyWith<$Res> implements $DashboardStateModelCopyWith<$Res> {
+  factory _$DashboardStateModelCopyWith(_DashboardStateModel value, $Res Function(_DashboardStateModel) _then) = __$DashboardStateModelCopyWithImpl;
+@override @useResult
+$Res call({
+ DashboardProfileModel profile, DashboardEvaluationModel evaluation, List<DashboardScenarioModel> scenarios
+});
+
+
+@override $DashboardProfileModelCopyWith<$Res> get profile;@override $DashboardEvaluationModelCopyWith<$Res> get evaluation;
+
+}
+/// @nodoc
+class __$DashboardStateModelCopyWithImpl<$Res>
+    implements _$DashboardStateModelCopyWith<$Res> {
+  __$DashboardStateModelCopyWithImpl(this._self, this._then);
+
+  final _DashboardStateModel _self;
+  final $Res Function(_DashboardStateModel) _then;
+
+/// Create a copy of DashboardStateModel
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? profile = null,Object? evaluation = null,Object? scenarios = null,}) {
+  return _then(_DashboardStateModel(
+profile: null == profile ? _self.profile : profile // ignore: cast_nullable_to_non_nullable
+as DashboardProfileModel,evaluation: null == evaluation ? _self.evaluation : evaluation // ignore: cast_nullable_to_non_nullable
+as DashboardEvaluationModel,scenarios: null == scenarios ? _self._scenarios : scenarios // ignore: cast_nullable_to_non_nullable
+as List<DashboardScenarioModel>,
+  ));
+}
+
+/// Create a copy of DashboardStateModel
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$DashboardProfileModelCopyWith<$Res> get profile {
+  
+  return $DashboardProfileModelCopyWith<$Res>(_self.profile, (value) {
+    return _then(_self.copyWith(profile: value));
+  });
+}/// Create a copy of DashboardStateModel
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$DashboardEvaluationModelCopyWith<$Res> get evaluation {
+  
+  return $DashboardEvaluationModelCopyWith<$Res>(_self.evaluation, (value) {
+    return _then(_self.copyWith(evaluation: value));
+  });
+}
+}
+
+// dart format on

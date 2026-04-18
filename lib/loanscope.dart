@@ -31,6 +31,7 @@ import 'core/config/dio_custom_client/client_stub.dart'
 import 'core/local/providers/shared_pref.dart';
 import 'core/localization/localization_notifier.dart';
 import 'core/services/check_internet.dart';
+import 'features/dashboard/presentation/provider/dashboard_provider.dart';
 import 'gen/assets.gen.dart';
 import 'shared/custom_app_start/providers/app_start.dart';
 
@@ -66,6 +67,15 @@ part 'core/theme/colors.dart';
 part 'features/bottom_shell/bottom_shell.dart';
 part 'features/bottom_shell/widgets/appbar.dart';
 // Features - Dashboard
+part 'features/dashboard/data/data_source/dashboard_local_data_source.dart';
+part 'features/dashboard/domain/model/dashboard_evaluation_model.dart';
+part 'features/dashboard/domain/model/dashboard_gap_item_model.dart';
+part 'features/dashboard/domain/model/dashboard_profile_model.dart';
+part 'features/dashboard/domain/model/dashboard_roadmap_model.dart';
+part 'features/dashboard/domain/model/dashboard_scenario_model.dart';
+part 'features/dashboard/domain/model/dashboard_state_model.dart';
+part 'features/dashboard/domain/repository/dashboard_local_repository.dart';
+part 'features/dashboard/domain/repository/dashboard_repository.dart';
 part 'features/dashboard/presentation/view/dashboard_page.dart';
 // Features - Splash
 part 'features/splash/presentation/view/splash.dart';

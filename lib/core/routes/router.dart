@@ -6,7 +6,7 @@ final routerConfigProvider = Provider((ref) {
   // Watch sharedPreferencesProvider to rebuild router when it becomes available
   // final sharedPrefsAsync = ref.watch(sharedPreferencesProvider);
   //   // Determine initial location based on saved user data
-  String initialLocation = AppRoutes.dashboard.path;
+  String initialLocation = AppRoutes.initialLocation;
 
   // if (sharedPrefsAsync.hasValue) {
   //   final localData = ref.read(localDataProvider);
@@ -57,4 +57,3 @@ final routerConfigProvider = Provider((ref) {
     ],
   );
 });
-

@@ -13,21 +13,34 @@ class BottomNavShell extends ConsumerStatefulWidget {
 class _BottomNavShellState extends ConsumerState<BottomNavShell> {
   List<Map<String, dynamic>> get bottomNavigationItems => [
     {'icon': Icons.home, 'route': AppRoutes.dashboard},
-    {'icon': Icons.calendar_month_outlined, 'route': AppRoutes.splash},
-    {'icon': Icons.add, 'route': AppRoutes.splash, 'isCenter': true},
+    {
+      'icon': Icons.calendar_month_outlined,
+      'route': AppRoutes.dashboard,
+      'isPlaceholder': true,
+    },
+    {
+      'icon': Icons.add,
+      'route': AppRoutes.dashboard,
+      'isCenter': true,
+      'isPlaceholder': true,
+    },
     {
       'icon': FontAwesomeIcons.chartLine,
-      'route': AppRoutes.splash,
+      'route': AppRoutes.dashboard,
       'size': 20.0,
+      'isPlaceholder': true,
     },
     {
       'icon': FontAwesomeIcons.userGear,
-      'route': AppRoutes.splash,
+      'route': AppRoutes.dashboard,
       'size': 20.0,
+      'isPlaceholder': true,
     },
   ];
 
   Widget buildBottomNavigationBar(BuildContext context) {
+    final currentPath = GoRouterState.of(context).uri.path;
+
     return Padding(
       padding: const EdgeInsets.only(left: 15.0, right: 15.0, bottom: 20),
       child: SizedBox(
@@ -57,9 +70,21 @@ class _BottomNavShellState extends ConsumerState<BottomNavShell> {
                       ...List.generate(2, (index) {
                         final item = bottomNavigationItems[index];
                         final isSelected =
-                            index == 0; // Example: always select first item
+                            !(item['isPlaceholder'] as bool? ?? false) &&
+                            currentPath == (item['route'] as AppRoutes).path;
                         return InkWell(
                           onTap: () {
+                            final isPlaceholder =
+                                item['isPlaceholder'] as bool? ?? false;
+                            if (isPlaceholder) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text('This section is coming soon.'),
+                                  duration: Duration(seconds: 1),
+                                ),
+                              );
+                              return;
+                            }
                             context.go((item['route'] as AppRoutes).path);
                           },
                           child: Column(
@@ -95,10 +120,21 @@ class _BottomNavShellState extends ConsumerState<BottomNavShell> {
                       ...List.generate(2, (index) {
                         final item = bottomNavigationItems[index + 3];
                         final isSelected =
-                            index ==
-                            1; // Example: always select second item in last two icons
+                            !(item['isPlaceholder'] as bool? ?? false) &&
+                            currentPath == (item['route'] as AppRoutes).path;
                         return InkWell(
                           onTap: () {
+                            final isPlaceholder =
+                                item['isPlaceholder'] as bool? ?? false;
+                            if (isPlaceholder) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text('This section is coming soon.'),
+                                  duration: Duration(seconds: 1),
+                                ),
+                              );
+                              return;
+                            }
                             context.go((item['route'] as AppRoutes).path);
                           },
                           child: Column(
@@ -114,7 +150,6 @@ class _BottomNavShellState extends ConsumerState<BottomNavShell> {
                                     : 26,
                               ),
                               if (isSelected) const SizedBox(height: 4),
-                              const SizedBox(height: 4),
                               if (isSelected)
                                 Container(
                                   width: 4,
@@ -144,15 +179,12 @@ class _BottomNavShellState extends ConsumerState<BottomNavShell> {
               child: Center(
                 child: InkWell(
                   onTap: () {
-                    // showModalBottomSheet(
-                    //   context: context,
-                    //   isScrollControlled: true,
-                    //   backgroundColor: Colors.transparent,
-                    //   barrierColor: Colors.black.withOpacity(0.3),
-                    //   builder: (BuildContext context) {
-                    //     return AddBottomSheet();
-                    //   },
-                    // );
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Quick action is coming soon.'),
+                        duration: Duration(seconds: 1),
+                      ),
+                    );
                   },
                   child: Container(
                     width: 74,
@@ -208,4 +240,3 @@ class _BottomNavShellState extends ConsumerState<BottomNavShell> {
     );
   }
 }
-
