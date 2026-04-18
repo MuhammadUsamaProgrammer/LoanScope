@@ -1,235 +1,225 @@
-
-# SkillTree - AI Coding Agent Instructions
+# LoanScope - AI Coding Agent Instructions
 
 ## Purpose
-This document is for AI coding agents (e.g., GitHub Copilot, GPT-4, Claude) working in the SkillTree codebase. It provides essential, actionable knowledge to maximize productivity and ensure code aligns with project conventions, architecture, and workflows. **Follow these instructions strictly.**
+This document is for AI coding agents (for example GitHub Copilot, GPT-based agents, Claude) working in the LoanScope codebase. Follow these instructions to stay aligned with current architecture, naming, and workflow.
 
-# Project Overview
+## Project Overview
+LoanScope is a Flutter app focused on loan-readiness guidance and simulation.
 
+Current experience flow:
+1. Splash onboarding screen
+2. Bottom shell layout
+3. Dashboard with live loan-readiness evaluation, gap analysis, and 30/60/90 roadmap
 
-Flutter tutoring platform (SDK ^3.10.1) with **dual user flows** (`FlowType.tutor` / `FlowType.student`). Features: session booking, calendar, file sharing, real-time chat (Firestore + REST API sync).
-
-**Tech Stack:** Flutter, Riverpod 3.x (codegen), GoRouter, Retrofit, Freezed, Firebase (Auth + Firestore)
-
+Tech stack in use:
+- Flutter (SDK ^3.11.0)
+- Riverpod 3.x with codegen (`riverpod_annotation`)
+- GoRouter
+- Freezed + json_serializable
+- Dio + Retrofit
+- Shared Preferences
+- FlutterGen assets
 
 ## Critical: Barrel File Pattern
-**ALL files** use `part of` consolidated in [lib/skilltree.dart](lib/skilltree.dart) (~250+ part statements). This enables global access to all project symbols and eliminates the need for local imports in most files.
+This repository uses a barrel file at [lib/loanscope.dart](lib/loanscope.dart) with `part` statements.
 
+Most files are `part of` files and should not add their own imports.
+
+Example headers for new part files:
 ```dart
-// New file header - count '../' based on depth from lib/:
-part of '../../skilltree.dart';           // 2 levels: lib/core/config/
-part of '../../../skilltree.dart';        // 3 levels: lib/core/config/subfolder/
-part of '../../../../../skilltree.dart';  // 5 levels: features/shared/chat/data/api/
-
-// Then add to lib/skilltree.dart (maintain alphabetical order within sections):
-part 'features/shared/chat/presentation/pages/view/my_new_file.dart';
+part of '../../loanscope.dart';           // lib/core/config/
+part of '../../../loanscope.dart';        // lib/shared/custom_app_start/presentation/
+part of '../../../../loanscope.dart';     // lib/features/dashboard/domain/model/
+part of '../../../../../loanscope.dart';  // deeper feature paths
 ```
 
-**EXCEPTION – Provider files** (`presentation/providers/` or `presentation/provider/`) use standard imports (required for `@riverpod` codegen):
+Then register every new part file in [lib/loanscope.dart](lib/loanscope.dart) under the closest matching section comment.
+
+Provider exception:
+Files under `presentation/provider/` (or `presentation/providers/`) use standard imports for Riverpod codegen.
+
 ```dart
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import '../../../../../skilltree.dart';
-part 'my_provider.g.dart';
-```
+import '../../../../loanscope.dart';
 
-**NEVER use** regular imports in `part of` files – they already have access to everything via the barrel.
-
-## Feature Architecture (3 domains)
-```
-lib/features/
-├── shared/   # Auth, chat, categories, upload_media, sessions, otp, splash, create_profile
-├── tutor/    # Dashboard, earnings, students, schedule, calendar, sessions, profile
-└── user/     # Home, book_a_session, wallet, all_tutors, calendar, sessions, my_files
-```
-Each feature follows this structure (see `lib/features/`):
-```
-feature_name/
-├── data/
-│   ├── api/       # @RestApi() Retrofit interfaces
-│   ├── dto/       # @freezed request DTOs (POST bodies)
-│   └── service/   # Firestore/external services (if needed)
-├── domain/
-│   ├── model/     # @freezed domain models
-│   └── repository/  # Interface + Provider + Implementation (all 3 in separate files)
-└── presentation/
-    ├── providers/ # @riverpod state management (uses imports, not part of)
-    │   └── provider/  # Alternative folder name used in some features
-    ├── view/      # Page widgets
-    │   └── pages/view/  # Alternative nesting pattern
-    └── widgets/   # Reusable UI components
-```
-
-## Creating API Feature (Quick Reference)
-```dart
-// 1. API Interface - data/api/feature_api.dart (part of skilltree.dart)
-@RestApi()
-abstract interface class FeatureApi {
-  factory FeatureApi(Dio client) => _FeatureApi(client, baseUrl: '/api/v1/feature/');
-  @GET('list?page={page}&count={count}')
-  Future<BaseListModel<FeatureModel>> getListApi(@Path('page') int page, @Path('count') int count);
-  @POST('create')
-  Future<BaseModel<FeatureModel>> createApi(@Body() FeatureDto data);
-}
-
-// 2. Repository Interface + Provider - domain/repository/feature_repository.dart
-abstract interface class FeatureRepository {
-  Future<BaseListModel<FeatureModel>> getList(int page, int count);
-}
-final featureRepository = Provider<FeatureRepository>(
-  (ref) => FeatureApiRepository(ref.read(apiServiceProvider).client),
-);
-
-// 3. Repository Implementation - domain/repository/feature_api_repository.dart
-class FeatureApiRepository implements FeatureRepository {
-  FeatureApiRepository(this.client);
-  final Dio client;
-  @override
-  Future<BaseListModel<FeatureModel>> getList(int page, int count) =>
-      FeatureApi(client).getListApi(page, count);
-}
-```
-
-## State Management Patterns
-```dart
-// Provider file (lib/features/.../presentation/providers/feature_provider.dart)
-// Uses standard IMPORTS - required for @riverpod codegen
-import 'package:riverpod_annotation/riverpod_annotation.dart';
-import '../../../../../skilltree.dart';
 part 'feature_provider.g.dart';
+```
 
-// Simple action provider (loading → success/error)
+Do not add regular imports in `part of` files unless the file is intentionally a standalone provider/codegen file.
+
+## Current App Flow
+Startup flow is:
+1. [lib/main.dart](lib/main.dart) runs `ProviderScope(child: MyApp())`
+2. [lib/app.dart](lib/app.dart) builds `MaterialApp.router`
+3. [lib/shared/custom_app_start/presentation/my_app_start.dart](lib/shared/custom_app_start/presentation/my_app_start.dart) waits for `appStartupProvider`
+4. [lib/shared/custom_app_start/providers/app_start.dart](lib/shared/custom_app_start/providers/app_start.dart) performs startup tasks:
+   - `EnvKeys.load()` (`.env`)
+   - initialize `SharedPreferences`
+   - lock portrait orientation
+   - configure system UI overlays
+5. Router starts at splash and transitions to dashboard
+
+Navigation flow:
+- [lib/core/routes/routes.dart](lib/core/routes/routes.dart): `AppRoutes.splash` and `AppRoutes.dashboard`
+- [lib/core/routes/router.dart](lib/core/routes/router.dart): root splash route + `ShellRoute` wrapping dashboard
+- [lib/features/bottom_shell/bottom_shell.dart](lib/features/bottom_shell/bottom_shell.dart): custom bottom bar (placeholder tabs currently show "coming soon")
+
+## Feature Architecture (Current)
+Current top-level feature modules:
+```text
+lib/features/
+|- splash/
+|- bottom_shell/
+`- dashboard/
+```
+
+Dashboard structure:
+```text
+dashboard/
+|- data/
+|  `- data_source/
+|- domain/
+|  |- model/
+|  `- repository/
+`- presentation/
+   |- provider/
+   `- view/
+```
+
+This dashboard module is the reference pattern for future feature implementation.
+
+## Dashboard State/Data Flow (Reference)
+The active flow is local-domain driven:
+1. UI reads state from `dashboardPProvider`
+2. Slider/input updates call notifier methods (for example `updateMonthlyIncome`)
+3. Notifier delegates to `DashboardRepository`
+4. Repository (`DashboardLocalRepository`) evaluates profile and scenarios
+5. State is replaced using immutable Freezed models
+6. UI cards re-render from updated `DashboardStateModel`
+
+Relevant files:
+- [lib/features/dashboard/presentation/provider/dashboard_provider.dart](lib/features/dashboard/presentation/provider/dashboard_provider.dart)
+- [lib/features/dashboard/domain/repository/dashboard_repository.dart](lib/features/dashboard/domain/repository/dashboard_repository.dart)
+- [lib/features/dashboard/domain/repository/dashboard_local_repository.dart](lib/features/dashboard/domain/repository/dashboard_local_repository.dart)
+- [lib/features/dashboard/data/data_source/dashboard_local_data_source.dart](lib/features/dashboard/data/data_source/dashboard_local_data_source.dart)
+
+## State Management Pattern
+Provider files should follow Riverpod codegen style:
+```dart
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+import '../../../../loanscope.dart';
+
+part 'dashboard_provider.g.dart';
+
 @riverpod
-class FeatureActionP extends _$FeatureActionP {
+class DashboardP extends _$DashboardP {
   @override
-  AppLoadingState build() => const AppLoadingState();
-  
-  Future<void> doAction() async {
-    state = const AppLoadingState.loading();
-    final response = await ref.read(featureRepository).getData();
-    $showMessage(response.message ?? '', isError: !response.isSuccess);
-    state = response.isSuccess ? const AppLoadingState() : const AppLoadingState.error();
-  }
-}
-
-// Paginated list provider - use BaseListModel<T> as state
-@riverpod
-class AllItemsP extends _$AllItemsP {
-  int page = 0;
-  final count = 10;
-
-  @override
-  BaseListModel<ItemModel> build() {
-    Future.microtask(() => getItems());  // Initial fetch
-    return BaseListModel<ItemModel>(isLoadingMore: true, data: [], isSuccess: false, totalCount: 0);
-  }
-
-  Future<void> onRefresh() async {
-    page = 0;
-    state = state.copyWith(data: [], isLoadingMore: true, totalCount: 0);
-    await getItems();
-  }
-
-  Future<void> getItems() async {
-    state = state.copyWith(isLoadingMore: true);
-    page++;
-    final response = await ref.read(itemRepository).getItems(page, count);
-    state = state.copyWith(
-      data: [...(state.data ?? []), ...(response.data ?? [])],
-      isLoadingMore: false,
-      isSuccess: response.isSuccess,
-      totalCount: response.totalCount,
+  DashboardStateModel build() {
+    final profile = ref.read(dashboardRepository).getInitialProfile();
+    return DashboardStateModel(
+      profile: profile,
+      evaluation: ref.read(dashboardRepository).evaluateProfile(profile),
+      scenarios: ref.read(dashboardRepository).getScenarios(),
     );
   }
 }
 ```
 
-## Response Wrappers ([lib/core/config/base_response.dart](lib/core/config/base_response.dart))
-- `BaseModel<T>` - Single item: `{isSuccess, message, data}`
-- `BaseListModel<T>` - Lists: `{isSuccess, message, data, totalCount, isLoadingMore}`
+For asynchronous one-time initialization, use keep-alive providers (see `@Riverpod(keepAlive: true)` in app startup and shared preferences providers).
 
-## UI Components ([lib/shared/widgets/](lib/shared/widgets/))
-| Widget | Usage |
-|--------|-------|
-| `AppButton` | `AppButton(onPressed: fn, title: 'Submit', isLoading: bool, border: bool, isDisabled: bool)` - auto-checks internet |
-| `TextFormFieldWidget` | `TextFormFieldWidget(controller: ctrl, hintText: '', validator: fn, labelText: '')` |
-| `GilroyText` / `InterText` | Text widgets with Google Fonts pre-applied |
-| `$showMessage()` | `$showMessage('text', isError: false)` - global toast |
-| `$showLoading()` | `$showLoading(context, message: 'Processing...')` → `$hidleLoading(context)` |
-| `AppColors` | `.primary`, `.white`, `.textColor`, `.colorC1C7D0`, `.color8A94A6` |
-| `Assets.svg.*` | FlutterGen assets - `Assets.svg.iconName`, `Assets.images.photo` |
-| `LoadingWidget` | `LoadingWidget(height: 20, width: 20, color: color)` |
+## Networking and Environment
+Networking conventions:
+- Use [lib/core/config/api.dart](lib/core/config/api.dart) `apiServiceProvider` as the source of configured `Dio`
+- Base URL comes from [lib/core/config/envoirnments.dart](lib/core/config/envoirnments.dart)
+- Authorization token is injected by [lib/core/config/interceptors.dart](lib/core/config/interceptors.dart)
+- Avoid creating ad-hoc `Dio()` instances in feature code
 
-## Form Handling (`FormStateMixin`)
-```dart
-class _PageState extends ConsumerState<Page> with FormStateMixin {
-  @override
-  FutureOr<void> onSubmit() async { /* called after form validation passes */ }
-  
-  @override
-  Widget build(BuildContext context) => Form(
-    key: formKey,  // from mixin - required!
-    child: AppButton(onPressed: submitter, title: 'Submit'),  // submitter validates then calls onSubmit
-  );
-}
-```
-
-## Real-time Chat Architecture
-- **Send**: REST API (`ChatApi.sendMessageApi`) → Backend syncs to Firestore
-- **Listen**: `FirestoreChatService` streams in [lib/features/shared/chat/data/service/](lib/features/shared/chat/data/service/)
-- **Firestore structure**: `chats/{chatId}/messages` ordered by `createdOn`
-- **Hybrid approach**: Initial load from API, real-time updates via Firestore `newMessagesStream(chatId, afterMessageId)`
-
-## Routing (GoRouter)
-Routes defined as enum in [lib/core/routes/routes.dart](lib/core/routes/routes.dart):
-```dart
-enum AppRoutes {
-  tutorDashboard('tutor-dashboard', '/tutor/dashboard'),
-  userChat('user-chat', '/user-chat'),
-  // Pattern: name, path - use unique names for shell navigation variants
-}
-// Navigate: context.go(AppRoutes.home.path) or context.push(AppRoutes.bookNow.path)
-```
-
-## Dual Flow Context
-```dart
-// Set on app startup - determines API header and UI variations
-FlowTypeContext.init(FlowType.tutor);  // or FlowType.student
-FlowTypeContext.isTutor;   // bool check
-FlowTypeContext.isStudents; // bool check
-```
+Token and env usage:
+- Load `.env` via `EnvKeys.load()` in startup
+- Read auth token through `ref.read(localDataProvider).accessToken`
 
 ## Local Storage
+Shared preferences flow:
+- [lib/core/local/providers/shared_pref.dart](lib/core/local/providers/shared_pref.dart) exposes `sharedPreferencesProvider`
+- [lib/core/local/repositories/local_storage_repository.dart](lib/core/local/repositories/local_storage_repository.dart) exposes `localDataProvider`
+- [lib/core/local/repositories/shared_preference_repository.dart](lib/core/local/repositories/shared_preference_repository.dart) contains implementation
+
+Common operations:
 ```dart
 ref.read(localDataProvider).accessToken;
 ref.read(localDataProvider).getUserId;
-ref.read(localDataProvider).getUserType;
 await ref.read(localDataProvider).setAccessToken('token');
-await ref.read(localDataProvider).saveUserId('userId');
+await ref.read(localDataProvider).saveUserId('user-id');
 ```
 
-## Build & Codegen Commands
+## Shared UI and Helpers
+Use existing shared widgets/helpers before adding new abstractions:
+- `AppButton` in [lib/shared/widgets/app_buttons/primary_button.dart](lib/shared/widgets/app_buttons/primary_button.dart)
+  - Includes internet check via `checkInternetProvider` before executing action
+- `InterText` in [lib/shared/widgets/text_widget/app_text.dart](lib/shared/widgets/text_widget/app_text.dart)
+- Toast/loading helpers in [lib/shared/widgets/custom_message.dart](lib/shared/widgets/custom_message.dart)
+  - `$showMessage()`
+  - `$showLoading()` / `$hidleLoading()`
+- Theme colors in [lib/core/theme/colors.dart](lib/core/theme/colors.dart)
+
+## Form Handling
+Use `FormStateMixin` from [lib/core/mixin/form_state_mixin.dart](lib/core/mixin/form_state_mixin.dart):
+```dart
+class _MyPageState extends ConsumerState<MyPage> with FormStateMixin {
+  @override
+  FutureOr<void> onSubmit() async {
+    // Called only after validation passes.
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: formKey,
+      autovalidateMode: autovalidateMode,
+      child: AppButton(onPressed: submitter, title: 'Submit'),
+    );
+  }
+}
+```
+
+## FlutterGen Asset Rules
+Follow generated asset types in [lib/gen/assets.gen.dart](lib/gen/assets.gen.dart):
+- Use `Assets.images.*.image(...)` for raster assets (`AssetGenImage`)
+- Use `Assets.svg.*.svg(...)` only for SVG assets
+
+Do not mix image and SVG accessors.
+
+## Build and Codegen Commands
+Run these after model/provider/API changes:
+
 ```bash
-flutter pub run build_runner build --delete-conflicting-outputs  # freezed, riverpod, retrofit
-flutter pub run build_runner watch --delete-conflicting-outputs  # watch mode during development
-flutter gen-l10n  # Generate localization files
+flutter pub get
+flutter pub run build_runner build --delete-conflicting-outputs
+flutter pub run build_runner watch --delete-conflicting-outputs
+flutter gen-l10n
+flutter analyze
 ```
 
-**After creating new files**: Always run `build_runner` to generate `.g.dart` and `.freezed.dart` files.
+Never manually edit generated files such as:
+- `*.g.dart`
+- `*.freezed.dart`
 
 ## Key Reference Files
-- [lib/skilltree.dart](lib/skilltree.dart) - Master barrel file (all parts + imports)
-- [lib/core/config/api.dart](lib/core/config/api.dart) - `apiServiceProvider`, `FlowTypeContext`
-- [lib/core/config/base_response.dart](lib/core/config/base_response.dart) - `BaseModel`, `BaseListModel`
-- [lib/core/states/app_loading_state.dart](lib/core/states/app_loading_state.dart) - `AppLoadingState` (loading/error/default)
-- [lib/core/mixin/form_state_mixin.dart](lib/core/mixin/form_state_mixin.dart) - Form validation pattern
-- [lib/core/routes/routes.dart](lib/core/routes/routes.dart) - All route definitions
-- [lib/shared/widgets/](lib/shared/widgets/) - Reusable UI components (`AppButton`, `TextFormFieldWidget`, etc.)
-- [lib/core/theme/colors.dart](lib/core/theme/colors.dart) - `AppColors` palette
-- [lib/gen/assets.gen.dart](lib/gen/assets.gen.dart) - FlutterGen asset references (`Assets.svg.*`, `Assets.images.*`)
+- [lib/loanscope.dart](lib/loanscope.dart) - barrel file and all `part` registrations
+- [lib/main.dart](lib/main.dart) - app entry point
+- [lib/app.dart](lib/app.dart) - root app widget and router hookup
+- [lib/core/routes/router.dart](lib/core/routes/router.dart) - GoRouter config
+- [lib/core/routes/routes.dart](lib/core/routes/routes.dart) - route enum
+- [lib/shared/custom_app_start/providers/app_start.dart](lib/shared/custom_app_start/providers/app_start.dart) - async startup flow
+- [lib/features/dashboard/presentation/provider/dashboard_provider.dart](lib/features/dashboard/presentation/provider/dashboard_provider.dart) - primary dashboard state provider
+- [lib/features/dashboard/presentation/view/dashboard_page.dart](lib/features/dashboard/presentation/view/dashboard_page.dart) - dashboard composition
 
-## Common Patterns to Avoid
-- ❌ Adding imports to `part of` files - use the barrel's existing imports
-- ❌ Creating providers without `.g.dart` part directive
-- ❌ Using `BaseModel` for lists (use `BaseListModel` instead)
-- ❌ Forgetting `Future.microtask()` for initial data fetch in providers
-- ❌ Missing `formKey` binding in `Form` widget when using `FormStateMixin`
+## Common Mistakes To Avoid
+- Using `skilltree.dart` references in this repo (use `loanscope.dart`)
+- Adding imports inside normal `part of` files
+- Creating a new file but forgetting to add its `part` line in [lib/loanscope.dart](lib/loanscope.dart)
+- Creating Riverpod provider files without `part 'x.g.dart';`
+- Editing generated files directly
+- Using `BaseModel<T>` for list responses where `BaseListModel<T>` is expected
+- Calling `Assets.images.*.svg(...)` for raster assets
+- Hardcoding route strings instead of `AppRoutes.*.path`

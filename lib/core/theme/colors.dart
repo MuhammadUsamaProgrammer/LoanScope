@@ -16,6 +16,9 @@ abstract final class AppColors {
   static const fieldErrorColor = Color(0xffFF3B30);
 
   static const color3182CE = Color(0xFF3182CE);
+  static const colorF59E0B = Color(0xFFF59E0B);
+  static const colorEEF2FF = Color(0xFFEEF2FF);
+  static const colorE8EEF5 = Color(0xFFE8EEF5);
   static const colorF6F8FA = Color(0xFFF6F8FA);
   static const color333333 = Color(0xFF333333);
   static const colorFF3B30 = Color(0xFFFF3B30);
@@ -35,4 +38,3 @@ abstract final class AppColors {
   static const colorEF4444 = Color(0xFFEF4444);
   static const color34C759 = Color(0xFF34C759);
 }
-

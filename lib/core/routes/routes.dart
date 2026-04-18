@@ -2,7 +2,8 @@ part of '../../loanscope.dart';
 
 enum AppRoutes {
   splash('splash', '/splash'),
-  dashboard('dashboard', '/dashboard');
+  dashboard('dashboard', '/dashboard'),
+  dashboardIntake('dashboard-intake', '/dashboard/intake');
 
   final String name;
   final String path;

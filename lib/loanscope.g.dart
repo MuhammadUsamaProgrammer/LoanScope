@@ -118,6 +118,133 @@ Map<String, dynamic> _$DashboardGapItemModelToJson(
   'suggestion': instance.suggestion,
 };
 
+_DashboardIntakeMessageModel _$DashboardIntakeMessageModelFromJson(
+  Map<String, dynamic> json,
+) => _DashboardIntakeMessageModel(
+  id: json['id'] as String,
+  sender: $enumDecode(_$DashboardIntakeMessageSenderEnumMap, json['sender']),
+  text: json['text'] as String,
+  createdAt: DateTime.parse(json['createdAt'] as String),
+);
+
+Map<String, dynamic> _$DashboardIntakeMessageModelToJson(
+  _DashboardIntakeMessageModel instance,
+) => <String, dynamic>{
+  'id': instance.id,
+  'sender': _$DashboardIntakeMessageSenderEnumMap[instance.sender]!,
+  'text': instance.text,
+  'createdAt': instance.createdAt.toIso8601String(),
+};
+
+const _$DashboardIntakeMessageSenderEnumMap = {
+  DashboardIntakeMessageSender.bot: 'bot',
+  DashboardIntakeMessageSender.user: 'user',
+};
+
+_DashboardIntakeOptionModel _$DashboardIntakeOptionModelFromJson(
+  Map<String, dynamic> json,
+) => _DashboardIntakeOptionModel(
+  label: json['label'] as String,
+  value: (json['value'] as num).toDouble(),
+);
+
+Map<String, dynamic> _$DashboardIntakeOptionModelToJson(
+  _DashboardIntakeOptionModel instance,
+) => <String, dynamic>{'label': instance.label, 'value': instance.value};
+
+_DashboardIntakeQuestionModel _$DashboardIntakeQuestionModelFromJson(
+  Map<String, dynamic> json,
+) => _DashboardIntakeQuestionModel(
+  id: json['id'] as String,
+  fieldKey: json['fieldKey'] as String,
+  prompt: json['prompt'] as String,
+  inputType: $enumDecode(_$DashboardIntakeInputTypeEnumMap, json['inputType']),
+  hint: json['hint'] as String?,
+  minValue: (json['minValue'] as num?)?.toDouble(),
+  maxValue: (json['maxValue'] as num?)?.toDouble(),
+  options:
+      (json['options'] as List<dynamic>?)
+          ?.map(
+            (e) =>
+                DashboardIntakeOptionModel.fromJson(e as Map<String, dynamic>),
+          )
+          .toList() ??
+      const <DashboardIntakeOptionModel>[],
+);
+
+Map<String, dynamic> _$DashboardIntakeQuestionModelToJson(
+  _DashboardIntakeQuestionModel instance,
+) => <String, dynamic>{
+  'id': instance.id,
+  'fieldKey': instance.fieldKey,
+  'prompt': instance.prompt,
+  'inputType': _$DashboardIntakeInputTypeEnumMap[instance.inputType]!,
+  'hint': instance.hint,
+  'minValue': instance.minValue,
+  'maxValue': instance.maxValue,
+  'options': instance.options,
+};
+
+const _$DashboardIntakeInputTypeEnumMap = {
+  DashboardIntakeInputType.numeric: 'numeric',
+  DashboardIntakeInputType.singleChoice: 'singleChoice',
+};
+
+_DashboardIntakeStateModel _$DashboardIntakeStateModelFromJson(
+  Map<String, dynamic> json,
+) => _DashboardIntakeStateModel(
+  questions:
+      (json['questions'] as List<dynamic>?)
+          ?.map(
+            (e) => DashboardIntakeQuestionModel.fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList() ??
+      const <DashboardIntakeQuestionModel>[],
+  messages:
+      (json['messages'] as List<dynamic>?)
+          ?.map(
+            (e) =>
+                DashboardIntakeMessageModel.fromJson(e as Map<String, dynamic>),
+          )
+          .toList() ??
+      const <DashboardIntakeMessageModel>[],
+  answers:
+      (json['answers'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, (e as num).toDouble()),
+      ) ??
+      const <String, double>{},
+  currentQuestionIndex: (json['currentQuestionIndex'] as num?)?.toInt() ?? 0,
+  currentInputValue: json['currentInputValue'] as String? ?? '',
+  isCompleted: json['isCompleted'] as bool? ?? false,
+  generatedProfile: json['generatedProfile'] == null
+      ? null
+      : DashboardProfileModel.fromJson(
+          json['generatedProfile'] as Map<String, dynamic>,
+        ),
+  generatedEvaluation: json['generatedEvaluation'] == null
+      ? null
+      : DashboardEvaluationModel.fromJson(
+          json['generatedEvaluation'] as Map<String, dynamic>,
+        ),
+  validationError: json['validationError'] as String?,
+);
+
+Map<String, dynamic> _$DashboardIntakeStateModelToJson(
+  _DashboardIntakeStateModel instance,
+) => <String, dynamic>{
+  'questions': instance.questions,
+  'messages': instance.messages,
+  'answers': instance.answers,
+  'currentQuestionIndex': instance.currentQuestionIndex,
+  'currentInputValue': instance.currentInputValue,
+  'isCompleted': instance.isCompleted,
+  'generatedProfile': instance.generatedProfile,
+  'generatedEvaluation': instance.generatedEvaluation,
+  'validationError': instance.validationError,
+};
+
 _DashboardProfileModel _$DashboardProfileModelFromJson(
   Map<String, dynamic> json,
 ) => _DashboardProfileModel(

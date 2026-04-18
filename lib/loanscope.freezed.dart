@@ -1401,6 +1401,1187 @@ as String,
 
 
 /// @nodoc
+mixin _$DashboardIntakeMessageModel {
+
+ String get id; DashboardIntakeMessageSender get sender; String get text; DateTime get createdAt;
+/// Create a copy of DashboardIntakeMessageModel
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DashboardIntakeMessageModelCopyWith<DashboardIntakeMessageModel> get copyWith => _$DashboardIntakeMessageModelCopyWithImpl<DashboardIntakeMessageModel>(this as DashboardIntakeMessageModel, _$identity);
+
+  /// Serializes this DashboardIntakeMessageModel to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DashboardIntakeMessageModel&&(identical(other.id, id) || other.id == id)&&(identical(other.sender, sender) || other.sender == sender)&&(identical(other.text, text) || other.text == text)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,id,sender,text,createdAt);
+
+@override
+String toString() {
+  return 'DashboardIntakeMessageModel(id: $id, sender: $sender, text: $text, createdAt: $createdAt)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $DashboardIntakeMessageModelCopyWith<$Res>  {
+  factory $DashboardIntakeMessageModelCopyWith(DashboardIntakeMessageModel value, $Res Function(DashboardIntakeMessageModel) _then) = _$DashboardIntakeMessageModelCopyWithImpl;
+@useResult
+$Res call({
+ String id, DashboardIntakeMessageSender sender, String text, DateTime createdAt
+});
+
+
+
+
+}
+/// @nodoc
+class _$DashboardIntakeMessageModelCopyWithImpl<$Res>
+    implements $DashboardIntakeMessageModelCopyWith<$Res> {
+  _$DashboardIntakeMessageModelCopyWithImpl(this._self, this._then);
+
+  final DashboardIntakeMessageModel _self;
+  final $Res Function(DashboardIntakeMessageModel) _then;
+
+/// Create a copy of DashboardIntakeMessageModel
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? sender = null,Object? text = null,Object? createdAt = null,}) {
+  return _then(_self.copyWith(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String,sender: null == sender ? _self.sender : sender // ignore: cast_nullable_to_non_nullable
+as DashboardIntakeMessageSender,text: null == text ? _self.text : text // ignore: cast_nullable_to_non_nullable
+as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DateTime,
+  ));
+}
+
+}
+
+
+/// Adds pattern-matching-related methods to [DashboardIntakeMessageModel].
+extension DashboardIntakeMessageModelPatterns on DashboardIntakeMessageModel {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _DashboardIntakeMessageModel value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _DashboardIntakeMessageModel() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _DashboardIntakeMessageModel value)  $default,){
+final _that = this;
+switch (_that) {
+case _DashboardIntakeMessageModel():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _DashboardIntakeMessageModel value)?  $default,){
+final _that = this;
+switch (_that) {
+case _DashboardIntakeMessageModel() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  DashboardIntakeMessageSender sender,  String text,  DateTime createdAt)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _DashboardIntakeMessageModel() when $default != null:
+return $default(_that.id,_that.sender,_that.text,_that.createdAt);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  DashboardIntakeMessageSender sender,  String text,  DateTime createdAt)  $default,) {final _that = this;
+switch (_that) {
+case _DashboardIntakeMessageModel():
+return $default(_that.id,_that.sender,_that.text,_that.createdAt);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  DashboardIntakeMessageSender sender,  String text,  DateTime createdAt)?  $default,) {final _that = this;
+switch (_that) {
+case _DashboardIntakeMessageModel() when $default != null:
+return $default(_that.id,_that.sender,_that.text,_that.createdAt);case _:
+  return null;
+
+}
+}
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class _DashboardIntakeMessageModel implements DashboardIntakeMessageModel {
+  const _DashboardIntakeMessageModel({required this.id, required this.sender, required this.text, required this.createdAt});
+  factory _DashboardIntakeMessageModel.fromJson(Map<String, dynamic> json) => _$DashboardIntakeMessageModelFromJson(json);
+
+@override final  String id;
+@override final  DashboardIntakeMessageSender sender;
+@override final  String text;
+@override final  DateTime createdAt;
+
+/// Create a copy of DashboardIntakeMessageModel
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$DashboardIntakeMessageModelCopyWith<_DashboardIntakeMessageModel> get copyWith => __$DashboardIntakeMessageModelCopyWithImpl<_DashboardIntakeMessageModel>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$DashboardIntakeMessageModelToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DashboardIntakeMessageModel&&(identical(other.id, id) || other.id == id)&&(identical(other.sender, sender) || other.sender == sender)&&(identical(other.text, text) || other.text == text)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,id,sender,text,createdAt);
+
+@override
+String toString() {
+  return 'DashboardIntakeMessageModel(id: $id, sender: $sender, text: $text, createdAt: $createdAt)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$DashboardIntakeMessageModelCopyWith<$Res> implements $DashboardIntakeMessageModelCopyWith<$Res> {
+  factory _$DashboardIntakeMessageModelCopyWith(_DashboardIntakeMessageModel value, $Res Function(_DashboardIntakeMessageModel) _then) = __$DashboardIntakeMessageModelCopyWithImpl;
+@override @useResult
+$Res call({
+ String id, DashboardIntakeMessageSender sender, String text, DateTime createdAt
+});
+
+
+
+
+}
+/// @nodoc
+class __$DashboardIntakeMessageModelCopyWithImpl<$Res>
+    implements _$DashboardIntakeMessageModelCopyWith<$Res> {
+  __$DashboardIntakeMessageModelCopyWithImpl(this._self, this._then);
+
+  final _DashboardIntakeMessageModel _self;
+  final $Res Function(_DashboardIntakeMessageModel) _then;
+
+/// Create a copy of DashboardIntakeMessageModel
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? sender = null,Object? text = null,Object? createdAt = null,}) {
+  return _then(_DashboardIntakeMessageModel(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String,sender: null == sender ? _self.sender : sender // ignore: cast_nullable_to_non_nullable
+as DashboardIntakeMessageSender,text: null == text ? _self.text : text // ignore: cast_nullable_to_non_nullable
+as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DateTime,
+  ));
+}
+
+
+}
+
+
+/// @nodoc
+mixin _$DashboardIntakeOptionModel {
+
+ String get label; double get value;
+/// Create a copy of DashboardIntakeOptionModel
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DashboardIntakeOptionModelCopyWith<DashboardIntakeOptionModel> get copyWith => _$DashboardIntakeOptionModelCopyWithImpl<DashboardIntakeOptionModel>(this as DashboardIntakeOptionModel, _$identity);
+
+  /// Serializes this DashboardIntakeOptionModel to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DashboardIntakeOptionModel&&(identical(other.label, label) || other.label == label)&&(identical(other.value, value) || other.value == value));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,label,value);
+
+@override
+String toString() {
+  return 'DashboardIntakeOptionModel(label: $label, value: $value)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $DashboardIntakeOptionModelCopyWith<$Res>  {
+  factory $DashboardIntakeOptionModelCopyWith(DashboardIntakeOptionModel value, $Res Function(DashboardIntakeOptionModel) _then) = _$DashboardIntakeOptionModelCopyWithImpl;
+@useResult
+$Res call({
+ String label, double value
+});
+
+
+
+
+}
+/// @nodoc
+class _$DashboardIntakeOptionModelCopyWithImpl<$Res>
+    implements $DashboardIntakeOptionModelCopyWith<$Res> {
+  _$DashboardIntakeOptionModelCopyWithImpl(this._self, this._then);
+
+  final DashboardIntakeOptionModel _self;
+  final $Res Function(DashboardIntakeOptionModel) _then;
+
+/// Create a copy of DashboardIntakeOptionModel
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? label = null,Object? value = null,}) {
+  return _then(_self.copyWith(
+label: null == label ? _self.label : label // ignore: cast_nullable_to_non_nullable
+as String,value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as double,
+  ));
+}
+
+}
+
+
+/// Adds pattern-matching-related methods to [DashboardIntakeOptionModel].
+extension DashboardIntakeOptionModelPatterns on DashboardIntakeOptionModel {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _DashboardIntakeOptionModel value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _DashboardIntakeOptionModel() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _DashboardIntakeOptionModel value)  $default,){
+final _that = this;
+switch (_that) {
+case _DashboardIntakeOptionModel():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _DashboardIntakeOptionModel value)?  $default,){
+final _that = this;
+switch (_that) {
+case _DashboardIntakeOptionModel() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String label,  double value)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _DashboardIntakeOptionModel() when $default != null:
+return $default(_that.label,_that.value);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String label,  double value)  $default,) {final _that = this;
+switch (_that) {
+case _DashboardIntakeOptionModel():
+return $default(_that.label,_that.value);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String label,  double value)?  $default,) {final _that = this;
+switch (_that) {
+case _DashboardIntakeOptionModel() when $default != null:
+return $default(_that.label,_that.value);case _:
+  return null;
+
+}
+}
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class _DashboardIntakeOptionModel implements DashboardIntakeOptionModel {
+  const _DashboardIntakeOptionModel({required this.label, required this.value});
+  factory _DashboardIntakeOptionModel.fromJson(Map<String, dynamic> json) => _$DashboardIntakeOptionModelFromJson(json);
+
+@override final  String label;
+@override final  double value;
+
+/// Create a copy of DashboardIntakeOptionModel
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$DashboardIntakeOptionModelCopyWith<_DashboardIntakeOptionModel> get copyWith => __$DashboardIntakeOptionModelCopyWithImpl<_DashboardIntakeOptionModel>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$DashboardIntakeOptionModelToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DashboardIntakeOptionModel&&(identical(other.label, label) || other.label == label)&&(identical(other.value, value) || other.value == value));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,label,value);
+
+@override
+String toString() {
+  return 'DashboardIntakeOptionModel(label: $label, value: $value)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$DashboardIntakeOptionModelCopyWith<$Res> implements $DashboardIntakeOptionModelCopyWith<$Res> {
+  factory _$DashboardIntakeOptionModelCopyWith(_DashboardIntakeOptionModel value, $Res Function(_DashboardIntakeOptionModel) _then) = __$DashboardIntakeOptionModelCopyWithImpl;
+@override @useResult
+$Res call({
+ String label, double value
+});
+
+
+
+
+}
+/// @nodoc
+class __$DashboardIntakeOptionModelCopyWithImpl<$Res>
+    implements _$DashboardIntakeOptionModelCopyWith<$Res> {
+  __$DashboardIntakeOptionModelCopyWithImpl(this._self, this._then);
+
+  final _DashboardIntakeOptionModel _self;
+  final $Res Function(_DashboardIntakeOptionModel) _then;
+
+/// Create a copy of DashboardIntakeOptionModel
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? label = null,Object? value = null,}) {
+  return _then(_DashboardIntakeOptionModel(
+label: null == label ? _self.label : label // ignore: cast_nullable_to_non_nullable
+as String,value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as double,
+  ));
+}
+
+
+}
+
+
+/// @nodoc
+mixin _$DashboardIntakeQuestionModel {
+
+ String get id; String get fieldKey; String get prompt; DashboardIntakeInputType get inputType; String? get hint; double? get minValue; double? get maxValue; List<DashboardIntakeOptionModel> get options;
+/// Create a copy of DashboardIntakeQuestionModel
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DashboardIntakeQuestionModelCopyWith<DashboardIntakeQuestionModel> get copyWith => _$DashboardIntakeQuestionModelCopyWithImpl<DashboardIntakeQuestionModel>(this as DashboardIntakeQuestionModel, _$identity);
+
+  /// Serializes this DashboardIntakeQuestionModel to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DashboardIntakeQuestionModel&&(identical(other.id, id) || other.id == id)&&(identical(other.fieldKey, fieldKey) || other.fieldKey == fieldKey)&&(identical(other.prompt, prompt) || other.prompt == prompt)&&(identical(other.inputType, inputType) || other.inputType == inputType)&&(identical(other.hint, hint) || other.hint == hint)&&(identical(other.minValue, minValue) || other.minValue == minValue)&&(identical(other.maxValue, maxValue) || other.maxValue == maxValue)&&const DeepCollectionEquality().equals(other.options, options));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,id,fieldKey,prompt,inputType,hint,minValue,maxValue,const DeepCollectionEquality().hash(options));
+
+@override
+String toString() {
+  return 'DashboardIntakeQuestionModel(id: $id, fieldKey: $fieldKey, prompt: $prompt, inputType: $inputType, hint: $hint, minValue: $minValue, maxValue: $maxValue, options: $options)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $DashboardIntakeQuestionModelCopyWith<$Res>  {
+  factory $DashboardIntakeQuestionModelCopyWith(DashboardIntakeQuestionModel value, $Res Function(DashboardIntakeQuestionModel) _then) = _$DashboardIntakeQuestionModelCopyWithImpl;
+@useResult
+$Res call({
+ String id, String fieldKey, String prompt, DashboardIntakeInputType inputType, String? hint, double? minValue, double? maxValue, List<DashboardIntakeOptionModel> options
+});
+
+
+
+
+}
+/// @nodoc
+class _$DashboardIntakeQuestionModelCopyWithImpl<$Res>
+    implements $DashboardIntakeQuestionModelCopyWith<$Res> {
+  _$DashboardIntakeQuestionModelCopyWithImpl(this._self, this._then);
+
+  final DashboardIntakeQuestionModel _self;
+  final $Res Function(DashboardIntakeQuestionModel) _then;
+
+/// Create a copy of DashboardIntakeQuestionModel
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? fieldKey = null,Object? prompt = null,Object? inputType = null,Object? hint = freezed,Object? minValue = freezed,Object? maxValue = freezed,Object? options = null,}) {
+  return _then(_self.copyWith(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String,fieldKey: null == fieldKey ? _self.fieldKey : fieldKey // ignore: cast_nullable_to_non_nullable
+as String,prompt: null == prompt ? _self.prompt : prompt // ignore: cast_nullable_to_non_nullable
+as String,inputType: null == inputType ? _self.inputType : inputType // ignore: cast_nullable_to_non_nullable
+as DashboardIntakeInputType,hint: freezed == hint ? _self.hint : hint // ignore: cast_nullable_to_non_nullable
+as String?,minValue: freezed == minValue ? _self.minValue : minValue // ignore: cast_nullable_to_non_nullable
+as double?,maxValue: freezed == maxValue ? _self.maxValue : maxValue // ignore: cast_nullable_to_non_nullable
+as double?,options: null == options ? _self.options : options // ignore: cast_nullable_to_non_nullable
+as List<DashboardIntakeOptionModel>,
+  ));
+}
+
+}
+
+
+/// Adds pattern-matching-related methods to [DashboardIntakeQuestionModel].
+extension DashboardIntakeQuestionModelPatterns on DashboardIntakeQuestionModel {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _DashboardIntakeQuestionModel value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _DashboardIntakeQuestionModel() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _DashboardIntakeQuestionModel value)  $default,){
+final _that = this;
+switch (_that) {
+case _DashboardIntakeQuestionModel():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _DashboardIntakeQuestionModel value)?  $default,){
+final _that = this;
+switch (_that) {
+case _DashboardIntakeQuestionModel() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String fieldKey,  String prompt,  DashboardIntakeInputType inputType,  String? hint,  double? minValue,  double? maxValue,  List<DashboardIntakeOptionModel> options)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _DashboardIntakeQuestionModel() when $default != null:
+return $default(_that.id,_that.fieldKey,_that.prompt,_that.inputType,_that.hint,_that.minValue,_that.maxValue,_that.options);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String fieldKey,  String prompt,  DashboardIntakeInputType inputType,  String? hint,  double? minValue,  double? maxValue,  List<DashboardIntakeOptionModel> options)  $default,) {final _that = this;
+switch (_that) {
+case _DashboardIntakeQuestionModel():
+return $default(_that.id,_that.fieldKey,_that.prompt,_that.inputType,_that.hint,_that.minValue,_that.maxValue,_that.options);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String fieldKey,  String prompt,  DashboardIntakeInputType inputType,  String? hint,  double? minValue,  double? maxValue,  List<DashboardIntakeOptionModel> options)?  $default,) {final _that = this;
+switch (_that) {
+case _DashboardIntakeQuestionModel() when $default != null:
+return $default(_that.id,_that.fieldKey,_that.prompt,_that.inputType,_that.hint,_that.minValue,_that.maxValue,_that.options);case _:
+  return null;
+
+}
+}
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class _DashboardIntakeQuestionModel implements DashboardIntakeQuestionModel {
+  const _DashboardIntakeQuestionModel({required this.id, required this.fieldKey, required this.prompt, required this.inputType, this.hint, this.minValue, this.maxValue, final  List<DashboardIntakeOptionModel> options = const <DashboardIntakeOptionModel>[]}): _options = options;
+  factory _DashboardIntakeQuestionModel.fromJson(Map<String, dynamic> json) => _$DashboardIntakeQuestionModelFromJson(json);
+
+@override final  String id;
+@override final  String fieldKey;
+@override final  String prompt;
+@override final  DashboardIntakeInputType inputType;
+@override final  String? hint;
+@override final  double? minValue;
+@override final  double? maxValue;
+ final  List<DashboardIntakeOptionModel> _options;
+@override@JsonKey() List<DashboardIntakeOptionModel> get options {
+  if (_options is EqualUnmodifiableListView) return _options;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_options);
+}
+
+
+/// Create a copy of DashboardIntakeQuestionModel
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$DashboardIntakeQuestionModelCopyWith<_DashboardIntakeQuestionModel> get copyWith => __$DashboardIntakeQuestionModelCopyWithImpl<_DashboardIntakeQuestionModel>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$DashboardIntakeQuestionModelToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DashboardIntakeQuestionModel&&(identical(other.id, id) || other.id == id)&&(identical(other.fieldKey, fieldKey) || other.fieldKey == fieldKey)&&(identical(other.prompt, prompt) || other.prompt == prompt)&&(identical(other.inputType, inputType) || other.inputType == inputType)&&(identical(other.hint, hint) || other.hint == hint)&&(identical(other.minValue, minValue) || other.minValue == minValue)&&(identical(other.maxValue, maxValue) || other.maxValue == maxValue)&&const DeepCollectionEquality().equals(other._options, _options));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,id,fieldKey,prompt,inputType,hint,minValue,maxValue,const DeepCollectionEquality().hash(_options));
+
+@override
+String toString() {
+  return 'DashboardIntakeQuestionModel(id: $id, fieldKey: $fieldKey, prompt: $prompt, inputType: $inputType, hint: $hint, minValue: $minValue, maxValue: $maxValue, options: $options)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$DashboardIntakeQuestionModelCopyWith<$Res> implements $DashboardIntakeQuestionModelCopyWith<$Res> {
+  factory _$DashboardIntakeQuestionModelCopyWith(_DashboardIntakeQuestionModel value, $Res Function(_DashboardIntakeQuestionModel) _then) = __$DashboardIntakeQuestionModelCopyWithImpl;
+@override @useResult
+$Res call({
+ String id, String fieldKey, String prompt, DashboardIntakeInputType inputType, String? hint, double? minValue, double? maxValue, List<DashboardIntakeOptionModel> options
+});
+
+
+
+
+}
+/// @nodoc
+class __$DashboardIntakeQuestionModelCopyWithImpl<$Res>
+    implements _$DashboardIntakeQuestionModelCopyWith<$Res> {
+  __$DashboardIntakeQuestionModelCopyWithImpl(this._self, this._then);
+
+  final _DashboardIntakeQuestionModel _self;
+  final $Res Function(_DashboardIntakeQuestionModel) _then;
+
+/// Create a copy of DashboardIntakeQuestionModel
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? fieldKey = null,Object? prompt = null,Object? inputType = null,Object? hint = freezed,Object? minValue = freezed,Object? maxValue = freezed,Object? options = null,}) {
+  return _then(_DashboardIntakeQuestionModel(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String,fieldKey: null == fieldKey ? _self.fieldKey : fieldKey // ignore: cast_nullable_to_non_nullable
+as String,prompt: null == prompt ? _self.prompt : prompt // ignore: cast_nullable_to_non_nullable
+as String,inputType: null == inputType ? _self.inputType : inputType // ignore: cast_nullable_to_non_nullable
+as DashboardIntakeInputType,hint: freezed == hint ? _self.hint : hint // ignore: cast_nullable_to_non_nullable
+as String?,minValue: freezed == minValue ? _self.minValue : minValue // ignore: cast_nullable_to_non_nullable
+as double?,maxValue: freezed == maxValue ? _self.maxValue : maxValue // ignore: cast_nullable_to_non_nullable
+as double?,options: null == options ? _self._options : options // ignore: cast_nullable_to_non_nullable
+as List<DashboardIntakeOptionModel>,
+  ));
+}
+
+
+}
+
+
+/// @nodoc
+mixin _$DashboardIntakeStateModel {
+
+ List<DashboardIntakeQuestionModel> get questions; List<DashboardIntakeMessageModel> get messages; Map<String, double> get answers; int get currentQuestionIndex; String get currentInputValue; bool get isCompleted; DashboardProfileModel? get generatedProfile; DashboardEvaluationModel? get generatedEvaluation; String? get validationError;
+/// Create a copy of DashboardIntakeStateModel
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DashboardIntakeStateModelCopyWith<DashboardIntakeStateModel> get copyWith => _$DashboardIntakeStateModelCopyWithImpl<DashboardIntakeStateModel>(this as DashboardIntakeStateModel, _$identity);
+
+  /// Serializes this DashboardIntakeStateModel to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DashboardIntakeStateModel&&const DeepCollectionEquality().equals(other.questions, questions)&&const DeepCollectionEquality().equals(other.messages, messages)&&const DeepCollectionEquality().equals(other.answers, answers)&&(identical(other.currentQuestionIndex, currentQuestionIndex) || other.currentQuestionIndex == currentQuestionIndex)&&(identical(other.currentInputValue, currentInputValue) || other.currentInputValue == currentInputValue)&&(identical(other.isCompleted, isCompleted) || other.isCompleted == isCompleted)&&(identical(other.generatedProfile, generatedProfile) || other.generatedProfile == generatedProfile)&&(identical(other.generatedEvaluation, generatedEvaluation) || other.generatedEvaluation == generatedEvaluation)&&(identical(other.validationError, validationError) || other.validationError == validationError));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(questions),const DeepCollectionEquality().hash(messages),const DeepCollectionEquality().hash(answers),currentQuestionIndex,currentInputValue,isCompleted,generatedProfile,generatedEvaluation,validationError);
+
+@override
+String toString() {
+  return 'DashboardIntakeStateModel(questions: $questions, messages: $messages, answers: $answers, currentQuestionIndex: $currentQuestionIndex, currentInputValue: $currentInputValue, isCompleted: $isCompleted, generatedProfile: $generatedProfile, generatedEvaluation: $generatedEvaluation, validationError: $validationError)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $DashboardIntakeStateModelCopyWith<$Res>  {
+  factory $DashboardIntakeStateModelCopyWith(DashboardIntakeStateModel value, $Res Function(DashboardIntakeStateModel) _then) = _$DashboardIntakeStateModelCopyWithImpl;
+@useResult
+$Res call({
+ List<DashboardIntakeQuestionModel> questions, List<DashboardIntakeMessageModel> messages, Map<String, double> answers, int currentQuestionIndex, String currentInputValue, bool isCompleted, DashboardProfileModel? generatedProfile, DashboardEvaluationModel? generatedEvaluation, String? validationError
+});
+
+
+$DashboardProfileModelCopyWith<$Res>? get generatedProfile;$DashboardEvaluationModelCopyWith<$Res>? get generatedEvaluation;
+
+}
+/// @nodoc
+class _$DashboardIntakeStateModelCopyWithImpl<$Res>
+    implements $DashboardIntakeStateModelCopyWith<$Res> {
+  _$DashboardIntakeStateModelCopyWithImpl(this._self, this._then);
+
+  final DashboardIntakeStateModel _self;
+  final $Res Function(DashboardIntakeStateModel) _then;
+
+/// Create a copy of DashboardIntakeStateModel
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? questions = null,Object? messages = null,Object? answers = null,Object? currentQuestionIndex = null,Object? currentInputValue = null,Object? isCompleted = null,Object? generatedProfile = freezed,Object? generatedEvaluation = freezed,Object? validationError = freezed,}) {
+  return _then(_self.copyWith(
+questions: null == questions ? _self.questions : questions // ignore: cast_nullable_to_non_nullable
+as List<DashboardIntakeQuestionModel>,messages: null == messages ? _self.messages : messages // ignore: cast_nullable_to_non_nullable
+as List<DashboardIntakeMessageModel>,answers: null == answers ? _self.answers : answers // ignore: cast_nullable_to_non_nullable
+as Map<String, double>,currentQuestionIndex: null == currentQuestionIndex ? _self.currentQuestionIndex : currentQuestionIndex // ignore: cast_nullable_to_non_nullable
+as int,currentInputValue: null == currentInputValue ? _self.currentInputValue : currentInputValue // ignore: cast_nullable_to_non_nullable
+as String,isCompleted: null == isCompleted ? _self.isCompleted : isCompleted // ignore: cast_nullable_to_non_nullable
+as bool,generatedProfile: freezed == generatedProfile ? _self.generatedProfile : generatedProfile // ignore: cast_nullable_to_non_nullable
+as DashboardProfileModel?,generatedEvaluation: freezed == generatedEvaluation ? _self.generatedEvaluation : generatedEvaluation // ignore: cast_nullable_to_non_nullable
+as DashboardEvaluationModel?,validationError: freezed == validationError ? _self.validationError : validationError // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+/// Create a copy of DashboardIntakeStateModel
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$DashboardProfileModelCopyWith<$Res>? get generatedProfile {
+    if (_self.generatedProfile == null) {
+    return null;
+  }
+
+  return $DashboardProfileModelCopyWith<$Res>(_self.generatedProfile!, (value) {
+    return _then(_self.copyWith(generatedProfile: value));
+  });
+}/// Create a copy of DashboardIntakeStateModel
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$DashboardEvaluationModelCopyWith<$Res>? get generatedEvaluation {
+    if (_self.generatedEvaluation == null) {
+    return null;
+  }
+
+  return $DashboardEvaluationModelCopyWith<$Res>(_self.generatedEvaluation!, (value) {
+    return _then(_self.copyWith(generatedEvaluation: value));
+  });
+}
+}
+
+
+/// Adds pattern-matching-related methods to [DashboardIntakeStateModel].
+extension DashboardIntakeStateModelPatterns on DashboardIntakeStateModel {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _DashboardIntakeStateModel value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _DashboardIntakeStateModel() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _DashboardIntakeStateModel value)  $default,){
+final _that = this;
+switch (_that) {
+case _DashboardIntakeStateModel():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _DashboardIntakeStateModel value)?  $default,){
+final _that = this;
+switch (_that) {
+case _DashboardIntakeStateModel() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<DashboardIntakeQuestionModel> questions,  List<DashboardIntakeMessageModel> messages,  Map<String, double> answers,  int currentQuestionIndex,  String currentInputValue,  bool isCompleted,  DashboardProfileModel? generatedProfile,  DashboardEvaluationModel? generatedEvaluation,  String? validationError)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _DashboardIntakeStateModel() when $default != null:
+return $default(_that.questions,_that.messages,_that.answers,_that.currentQuestionIndex,_that.currentInputValue,_that.isCompleted,_that.generatedProfile,_that.generatedEvaluation,_that.validationError);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<DashboardIntakeQuestionModel> questions,  List<DashboardIntakeMessageModel> messages,  Map<String, double> answers,  int currentQuestionIndex,  String currentInputValue,  bool isCompleted,  DashboardProfileModel? generatedProfile,  DashboardEvaluationModel? generatedEvaluation,  String? validationError)  $default,) {final _that = this;
+switch (_that) {
+case _DashboardIntakeStateModel():
+return $default(_that.questions,_that.messages,_that.answers,_that.currentQuestionIndex,_that.currentInputValue,_that.isCompleted,_that.generatedProfile,_that.generatedEvaluation,_that.validationError);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<DashboardIntakeQuestionModel> questions,  List<DashboardIntakeMessageModel> messages,  Map<String, double> answers,  int currentQuestionIndex,  String currentInputValue,  bool isCompleted,  DashboardProfileModel? generatedProfile,  DashboardEvaluationModel? generatedEvaluation,  String? validationError)?  $default,) {final _that = this;
+switch (_that) {
+case _DashboardIntakeStateModel() when $default != null:
+return $default(_that.questions,_that.messages,_that.answers,_that.currentQuestionIndex,_that.currentInputValue,_that.isCompleted,_that.generatedProfile,_that.generatedEvaluation,_that.validationError);case _:
+  return null;
+
+}
+}
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class _DashboardIntakeStateModel implements DashboardIntakeStateModel {
+  const _DashboardIntakeStateModel({final  List<DashboardIntakeQuestionModel> questions = const <DashboardIntakeQuestionModel>[], final  List<DashboardIntakeMessageModel> messages = const <DashboardIntakeMessageModel>[], final  Map<String, double> answers = const <String, double>{}, this.currentQuestionIndex = 0, this.currentInputValue = '', this.isCompleted = false, this.generatedProfile, this.generatedEvaluation, this.validationError}): _questions = questions,_messages = messages,_answers = answers;
+  factory _DashboardIntakeStateModel.fromJson(Map<String, dynamic> json) => _$DashboardIntakeStateModelFromJson(json);
+
+ final  List<DashboardIntakeQuestionModel> _questions;
+@override@JsonKey() List<DashboardIntakeQuestionModel> get questions {
+  if (_questions is EqualUnmodifiableListView) return _questions;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_questions);
+}
+
+ final  List<DashboardIntakeMessageModel> _messages;
+@override@JsonKey() List<DashboardIntakeMessageModel> get messages {
+  if (_messages is EqualUnmodifiableListView) return _messages;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_messages);
+}
+
+ final  Map<String, double> _answers;
+@override@JsonKey() Map<String, double> get answers {
+  if (_answers is EqualUnmodifiableMapView) return _answers;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(_answers);
+}
+
+@override@JsonKey() final  int currentQuestionIndex;
+@override@JsonKey() final  String currentInputValue;
+@override@JsonKey() final  bool isCompleted;
+@override final  DashboardProfileModel? generatedProfile;
+@override final  DashboardEvaluationModel? generatedEvaluation;
+@override final  String? validationError;
+
+/// Create a copy of DashboardIntakeStateModel
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$DashboardIntakeStateModelCopyWith<_DashboardIntakeStateModel> get copyWith => __$DashboardIntakeStateModelCopyWithImpl<_DashboardIntakeStateModel>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$DashboardIntakeStateModelToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DashboardIntakeStateModel&&const DeepCollectionEquality().equals(other._questions, _questions)&&const DeepCollectionEquality().equals(other._messages, _messages)&&const DeepCollectionEquality().equals(other._answers, _answers)&&(identical(other.currentQuestionIndex, currentQuestionIndex) || other.currentQuestionIndex == currentQuestionIndex)&&(identical(other.currentInputValue, currentInputValue) || other.currentInputValue == currentInputValue)&&(identical(other.isCompleted, isCompleted) || other.isCompleted == isCompleted)&&(identical(other.generatedProfile, generatedProfile) || other.generatedProfile == generatedProfile)&&(identical(other.generatedEvaluation, generatedEvaluation) || other.generatedEvaluation == generatedEvaluation)&&(identical(other.validationError, validationError) || other.validationError == validationError));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_questions),const DeepCollectionEquality().hash(_messages),const DeepCollectionEquality().hash(_answers),currentQuestionIndex,currentInputValue,isCompleted,generatedProfile,generatedEvaluation,validationError);
+
+@override
+String toString() {
+  return 'DashboardIntakeStateModel(questions: $questions, messages: $messages, answers: $answers, currentQuestionIndex: $currentQuestionIndex, currentInputValue: $currentInputValue, isCompleted: $isCompleted, generatedProfile: $generatedProfile, generatedEvaluation: $generatedEvaluation, validationError: $validationError)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$DashboardIntakeStateModelCopyWith<$Res> implements $DashboardIntakeStateModelCopyWith<$Res> {
+  factory _$DashboardIntakeStateModelCopyWith(_DashboardIntakeStateModel value, $Res Function(_DashboardIntakeStateModel) _then) = __$DashboardIntakeStateModelCopyWithImpl;
+@override @useResult
+$Res call({
+ List<DashboardIntakeQuestionModel> questions, List<DashboardIntakeMessageModel> messages, Map<String, double> answers, int currentQuestionIndex, String currentInputValue, bool isCompleted, DashboardProfileModel? generatedProfile, DashboardEvaluationModel? generatedEvaluation, String? validationError
+});
+
+
+@override $DashboardProfileModelCopyWith<$Res>? get generatedProfile;@override $DashboardEvaluationModelCopyWith<$Res>? get generatedEvaluation;
+
+}
+/// @nodoc
+class __$DashboardIntakeStateModelCopyWithImpl<$Res>
+    implements _$DashboardIntakeStateModelCopyWith<$Res> {
+  __$DashboardIntakeStateModelCopyWithImpl(this._self, this._then);
+
+  final _DashboardIntakeStateModel _self;
+  final $Res Function(_DashboardIntakeStateModel) _then;
+
+/// Create a copy of DashboardIntakeStateModel
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? questions = null,Object? messages = null,Object? answers = null,Object? currentQuestionIndex = null,Object? currentInputValue = null,Object? isCompleted = null,Object? generatedProfile = freezed,Object? generatedEvaluation = freezed,Object? validationError = freezed,}) {
+  return _then(_DashboardIntakeStateModel(
+questions: null == questions ? _self._questions : questions // ignore: cast_nullable_to_non_nullable
+as List<DashboardIntakeQuestionModel>,messages: null == messages ? _self._messages : messages // ignore: cast_nullable_to_non_nullable
+as List<DashboardIntakeMessageModel>,answers: null == answers ? _self._answers : answers // ignore: cast_nullable_to_non_nullable
+as Map<String, double>,currentQuestionIndex: null == currentQuestionIndex ? _self.currentQuestionIndex : currentQuestionIndex // ignore: cast_nullable_to_non_nullable
+as int,currentInputValue: null == currentInputValue ? _self.currentInputValue : currentInputValue // ignore: cast_nullable_to_non_nullable
+as String,isCompleted: null == isCompleted ? _self.isCompleted : isCompleted // ignore: cast_nullable_to_non_nullable
+as bool,generatedProfile: freezed == generatedProfile ? _self.generatedProfile : generatedProfile // ignore: cast_nullable_to_non_nullable
+as DashboardProfileModel?,generatedEvaluation: freezed == generatedEvaluation ? _self.generatedEvaluation : generatedEvaluation // ignore: cast_nullable_to_non_nullable
+as DashboardEvaluationModel?,validationError: freezed == validationError ? _self.validationError : validationError // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
+/// Create a copy of DashboardIntakeStateModel
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$DashboardProfileModelCopyWith<$Res>? get generatedProfile {
+    if (_self.generatedProfile == null) {
+    return null;
+  }
+
+  return $DashboardProfileModelCopyWith<$Res>(_self.generatedProfile!, (value) {
+    return _then(_self.copyWith(generatedProfile: value));
+  });
+}/// Create a copy of DashboardIntakeStateModel
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$DashboardEvaluationModelCopyWith<$Res>? get generatedEvaluation {
+    if (_self.generatedEvaluation == null) {
+    return null;
+  }
+
+  return $DashboardEvaluationModelCopyWith<$Res>(_self.generatedEvaluation!, (value) {
+    return _then(_self.copyWith(generatedEvaluation: value));
+  });
+}
+}
+
+
+/// @nodoc
 mixin _$DashboardProfileModel {
 
  double get monthlyIncome; double get existingEmi; double get desiredLoanAmount; double get tenureMonths; double get savingsBuffer;

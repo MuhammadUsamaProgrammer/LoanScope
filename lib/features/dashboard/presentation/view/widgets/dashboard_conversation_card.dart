@@ -1,9 +1,14 @@
 part of '../../../../../loanscope.dart';
 
 class DashboardConversationCard extends StatelessWidget {
-  const DashboardConversationCard({super.key, required this.loanReadyScore});
+  const DashboardConversationCard({
+    super.key,
+    required this.loanReadyScore,
+    required this.onStartIntake,
+  });
 
   final int loanReadyScore;
+  final VoidCallback onStartIntake;
 
   @override
   Widget build(BuildContext context) {
@@ -78,6 +83,21 @@ class DashboardConversationCard extends StatelessWidget {
             text:
                 'Got it. LoanReady Score moved to $loanReadyScore. Next, your existing monthly EMIs?',
             isBot: true,
+          ),
+          const SizedBox(height: 12),
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton.icon(
+              onPressed: onStartIntake,
+              icon: const Icon(Icons.auto_awesome_outlined, size: 18),
+              label: const Text('Start Real AI Intake'),
+              style: ElevatedButton.styleFrom(
+                minimumSize: const Size.fromHeight(44),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+            ),
           ),
         ],
       ),

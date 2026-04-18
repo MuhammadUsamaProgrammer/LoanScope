@@ -40,6 +40,12 @@ class _BottomNavShellState extends ConsumerState<BottomNavShell> {
 
   Widget buildBottomNavigationBar(BuildContext context) {
     final currentPath = GoRouterState.of(context).uri.path;
+    bool isRouteSelected(AppRoutes route) {
+      if (route == AppRoutes.dashboard) {
+        return currentPath.startsWith(route.path);
+      }
+      return currentPath == route.path;
+    }
 
     return Padding(
       padding: const EdgeInsets.only(left: 15.0, right: 15.0, bottom: 20),
@@ -71,7 +77,7 @@ class _BottomNavShellState extends ConsumerState<BottomNavShell> {
                         final item = bottomNavigationItems[index];
                         final isSelected =
                             !(item['isPlaceholder'] as bool? ?? false) &&
-                            currentPath == (item['route'] as AppRoutes).path;
+                            isRouteSelected(item['route'] as AppRoutes);
                         return InkWell(
                           onTap: () {
                             final isPlaceholder =
@@ -121,7 +127,7 @@ class _BottomNavShellState extends ConsumerState<BottomNavShell> {
                         final item = bottomNavigationItems[index + 3];
                         final isSelected =
                             !(item['isPlaceholder'] as bool? ?? false) &&
-                            currentPath == (item['route'] as AppRoutes).path;
+                            isRouteSelected(item['route'] as AppRoutes);
                         return InkWell(
                           onTap: () {
                             final isPlaceholder =

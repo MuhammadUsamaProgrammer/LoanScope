@@ -51,6 +51,10 @@ class DashboardP extends _$DashboardP {
     _updateProfile(profile);
   }
 
+  void hydrateProfile(DashboardProfileModel profile) {
+    _updateProfile(profile);
+  }
+
   void _updateProfile(DashboardProfileModel profile) {
     state = state.copyWith(
       profile: profile,

@@ -29,6 +29,8 @@ class DashboardPage extends ConsumerWidget {
               const SizedBox(height: 14),
               DashboardConversationCard(
                 loanReadyScore: dashboardState.evaluation.loanReadyScore,
+                onStartIntake: () =>
+                    context.push(AppRoutes.dashboardIntake.path),
               ),
               const SizedBox(height: 14),
               DashboardSimulatorCard(

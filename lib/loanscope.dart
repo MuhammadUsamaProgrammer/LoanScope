@@ -31,6 +31,7 @@ import 'core/config/dio_custom_client/client_stub.dart'
 import 'core/local/providers/shared_pref.dart';
 import 'core/localization/localization_notifier.dart';
 import 'core/services/check_internet.dart';
+import 'features/chat/presentation/provider/dashboard_intake_provider.dart';
 import 'features/dashboard/presentation/provider/dashboard_provider.dart';
 import 'gen/assets.gen.dart';
 import 'shared/custom_app_start/providers/app_start.dart';
@@ -67,6 +68,17 @@ part 'core/theme/colors.dart';
 part 'features/bottom_shell/bottom_shell.dart';
 part 'features/bottom_shell/widgets/appbar.dart';
 // Features - Dashboard
+part 'features/chat/data/dashboard_intake_local_data_source.dart';
+part 'features/chat/domain/model/dashboard_intake_message_model.dart';
+part 'features/chat/domain/model/dashboard_intake_option_model.dart';
+part 'features/chat/domain/model/dashboard_intake_question_model.dart';
+part 'features/chat/domain/model/dashboard_intake_state_model.dart';
+part 'features/chat/domain/repository/dashboard_intake_local_repository.dart';
+part 'features/chat/domain/repository/dashboard_intake_repository.dart';
+part 'features/chat/presentation/view/dashboard_intake_page.dart';
+part 'features/chat/presentation/view/widgets/dashboard_intake_header.dart';
+part 'features/chat/presentation/view/widgets/dashboard_intake_input_composer.dart';
+part 'features/chat/presentation/view/widgets/dashboard_intake_message_bubble.dart';
 part 'features/dashboard/data/data_source/dashboard_local_data_source.dart';
 part 'features/dashboard/domain/model/dashboard_evaluation_model.dart';
 part 'features/dashboard/domain/model/dashboard_gap_item_model.dart';

@@ -41,7 +41,7 @@ final class DashboardPProvider
   }
 }
 
-String _$dashboardPHash() => r'3d410c940c53b041f2c79d425dfe7e6fcb8fd5ce';
+String _$dashboardPHash() => r'82d8beaa663cb2cedb5689c4c631d31633c02fe8';
 
 abstract class _$DashboardP extends $Notifier<DashboardStateModel> {
   DashboardStateModel build();

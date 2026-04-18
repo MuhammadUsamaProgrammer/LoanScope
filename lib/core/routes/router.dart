@@ -37,6 +37,11 @@ final routerConfigProvider = Provider((ref) {
             name: AppRoutes.dashboard.name,
             builder: (context, state) => const DashboardPage(),
           ),
+          GoRoute(
+            path: AppRoutes.dashboardIntake.path,
+            name: AppRoutes.dashboardIntake.name,
+            builder: (context, state) => const DashboardIntakePage(),
+          ),
           // GoRoute(
           //   path: AppRoutes.appointments.path,
           //   name: AppRoutes.appointments.name,
