@@ -77,6 +77,13 @@ part 'features/dashboard/domain/model/dashboard_state_model.dart';
 part 'features/dashboard/domain/repository/dashboard_local_repository.dart';
 part 'features/dashboard/domain/repository/dashboard_repository.dart';
 part 'features/dashboard/presentation/view/dashboard_page.dart';
+part 'features/dashboard/presentation/view/widgets/dashboard_card_wrapper.dart';
+part 'features/dashboard/presentation/view/widgets/dashboard_conversation_card.dart';
+part 'features/dashboard/presentation/view/widgets/dashboard_gap_analysis_card.dart';
+part 'features/dashboard/presentation/view/widgets/dashboard_hero_card.dart';
+part 'features/dashboard/presentation/view/widgets/dashboard_roadmap_card.dart';
+part 'features/dashboard/presentation/view/widgets/dashboard_score_card.dart';
+part 'features/dashboard/presentation/view/widgets/dashboard_simulator_card.dart';
 // Features - Splash
 part 'features/splash/presentation/view/splash.dart';
 // Generated files
