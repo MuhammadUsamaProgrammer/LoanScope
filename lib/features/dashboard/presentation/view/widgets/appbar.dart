@@ -1,4 +1,4 @@
-part of '../../../loanscope.dart';
+part of '../../../../../loanscope.dart';
 
 Widget appBarWidget() {
   return ClipRect(
@@ -17,19 +17,7 @@ Widget appBarWidget() {
               height: 1.0,
             ),
           ),
-          leading: GestureDetector(
-            onTap: () {
-              shellKey.currentState?.openDrawer();
-            },
-            child: Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Assets.images.bead.image(
-                width: 24,
-                height: 24,
-                color: AppColors.textColor,
-              ),
-            ),
-          ),
+          leading: Assets.images.logo.image(),
           title: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,12 +52,7 @@ Widget appBarWidget() {
               child: CircleAvatar(
                 radius: 18,
                 backgroundColor: AppColors.primary,
-                child: InterText(
-                  'AD',
-                  size: 14,
-                  fontWeight: FontWeight.w600,
-                  color: AppColors.white,
-                ),
+                foregroundImage: Assets.images.profile.provider(),
               ),
             ),
           ],

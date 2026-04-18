@@ -33,8 +33,12 @@ class $AssetsImagesGen {
   /// File path: assets/images/logo_w.jpeg
   AssetGenImage get logoW => const AssetGenImage('assets/images/logo_w.jpeg');
 
+  /// File path: assets/images/profile.jpeg
+  AssetGenImage get profile =>
+      const AssetGenImage('assets/images/profile.jpeg');
+
   /// List of all assets
-  List<AssetGenImage> get values => [bead, logo, logoW];
+  List<AssetGenImage> get values => [bead, logo, logoW, profile];
 }
 
 class Assets {

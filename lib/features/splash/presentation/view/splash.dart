@@ -29,7 +29,7 @@ class _SplashViewState extends State<SplashView>
   void _navigateToDashboard() {
     if (!mounted || _didNavigate) return;
     _didNavigate = true;
-    // context.go(AppRoutes.dashboard.path);
+    context.goNamed(AppRoutes.dashboard.name);
   }
 
   @override
@@ -42,15 +42,19 @@ class _SplashViewState extends State<SplashView>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.scaffoldBg,
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Color(0xFF0F766E), Color(0xFF14B8A6), Color(0xFF0B3D3A)],
-          ),
+        decoration: BoxDecoration(
+          // gradient: LinearGradient(
+          //   begin: Alignment.topCenter,
+          //   end: Alignment.bottomCenter,
+          //   colors: [
+          //     AppColors.white, AppColors.white,
+          //     //  Color(0xFF14B8A6), Color(0xFF0B3D3A)
+          //   ],
+          // ),
         ),
         child: SafeArea(
           child: Padding(
@@ -88,7 +92,7 @@ class _SplashViewState extends State<SplashView>
                           child: const InterText(
                             'Preparing your smart eligibility workspace...',
                             size: 16,
-                            color: AppColors.white,
+                            color: AppColors.textColor,
                             fontWeight: FontWeight.w700,
                             height: 1.3,
                           ),
@@ -99,7 +103,7 @@ class _SplashViewState extends State<SplashView>
                           child: LinearProgressIndicator(
                             value: _animation.value,
                             minHeight: 9,
-                            backgroundColor: AppColors.white,
+                            backgroundColor: AppColors.colorE8EEF5,
                             valueColor: const AlwaysStoppedAnimation<Color>(
                               AppColors.primary,
                             ),
@@ -109,7 +113,7 @@ class _SplashViewState extends State<SplashView>
                         InterText(
                           '${(_animation.value * 100).toInt()}% loaded',
                           size: 12,
-                          color: AppColors.white,
+                          color: AppColors.textColor,
                           fontWeight: FontWeight.w600,
                         ),
                       ],

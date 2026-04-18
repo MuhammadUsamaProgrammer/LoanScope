@@ -39,8 +39,8 @@ class DashboardHeroCard extends StatelessWidget {
             spacing: 8,
             runSpacing: 8,
             children: const [
-              DashboardPillTag(title: 'Chat-style flow'),
-              DashboardPillTag(title: 'Voice-ready UX'),
+              DashboardPillTag(title: 'Live Score'),
+              DashboardPillTag(title: 'Chat-style Assistant'),
               DashboardPillTag(title: 'What-if simulator'),
             ],
           ),

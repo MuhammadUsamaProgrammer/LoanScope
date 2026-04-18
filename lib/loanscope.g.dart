@@ -56,68 +56,6 @@ Object? _$nullableGenericToJson<T>(
   Object? Function(T value) toJson,
 ) => input == null ? null : toJson(input);
 
-_DashboardEvaluationModel _$DashboardEvaluationModelFromJson(
-  Map<String, dynamic> json,
-) => _DashboardEvaluationModel(
-  proposedEmi: (json['proposedEmi'] as num).toDouble(),
-  totalObligation: (json['totalObligation'] as num).toDouble(),
-  foir: (json['foir'] as num).toDouble(),
-  loanReadyScore: (json['loanReadyScore'] as num).toInt(),
-  scoreBand: $enumDecode(_$DashboardScoreBandEnumMap, json['scoreBand']),
-  scoreTitle: json['scoreTitle'] as String,
-  gapItems:
-      (json['gapItems'] as List<dynamic>?)
-          ?.map(
-            (e) => DashboardGapItemModel.fromJson(e as Map<String, dynamic>),
-          )
-          .toList() ??
-      const <DashboardGapItemModel>[],
-  roadmap:
-      (json['roadmap'] as List<dynamic>?)
-          ?.map(
-            (e) => DashboardRoadmapModel.fromJson(e as Map<String, dynamic>),
-          )
-          .toList() ??
-      const <DashboardRoadmapModel>[],
-);
-
-Map<String, dynamic> _$DashboardEvaluationModelToJson(
-  _DashboardEvaluationModel instance,
-) => <String, dynamic>{
-  'proposedEmi': instance.proposedEmi,
-  'totalObligation': instance.totalObligation,
-  'foir': instance.foir,
-  'loanReadyScore': instance.loanReadyScore,
-  'scoreBand': _$DashboardScoreBandEnumMap[instance.scoreBand]!,
-  'scoreTitle': instance.scoreTitle,
-  'gapItems': instance.gapItems,
-  'roadmap': instance.roadmap,
-};
-
-const _$DashboardScoreBandEnumMap = {
-  DashboardScoreBand.qualified: 'qualified',
-  DashboardScoreBand.borderline: 'borderline',
-  DashboardScoreBand.needsImprovement: 'needsImprovement',
-};
-
-_DashboardGapItemModel _$DashboardGapItemModelFromJson(
-  Map<String, dynamic> json,
-) => _DashboardGapItemModel(
-  title: json['title'] as String,
-  currentValue: json['currentValue'] as String,
-  targetValue: json['targetValue'] as String,
-  suggestion: json['suggestion'] as String,
-);
-
-Map<String, dynamic> _$DashboardGapItemModelToJson(
-  _DashboardGapItemModel instance,
-) => <String, dynamic>{
-  'title': instance.title,
-  'currentValue': instance.currentValue,
-  'targetValue': instance.targetValue,
-  'suggestion': instance.suggestion,
-};
-
 _DashboardIntakeMessageModel _$DashboardIntakeMessageModelFromJson(
   Map<String, dynamic> json,
 ) => _DashboardIntakeMessageModel(
@@ -243,6 +181,68 @@ Map<String, dynamic> _$DashboardIntakeStateModelToJson(
   'generatedProfile': instance.generatedProfile,
   'generatedEvaluation': instance.generatedEvaluation,
   'validationError': instance.validationError,
+};
+
+_DashboardEvaluationModel _$DashboardEvaluationModelFromJson(
+  Map<String, dynamic> json,
+) => _DashboardEvaluationModel(
+  proposedEmi: (json['proposedEmi'] as num).toDouble(),
+  totalObligation: (json['totalObligation'] as num).toDouble(),
+  foir: (json['foir'] as num).toDouble(),
+  loanReadyScore: (json['loanReadyScore'] as num).toInt(),
+  scoreBand: $enumDecode(_$DashboardScoreBandEnumMap, json['scoreBand']),
+  scoreTitle: json['scoreTitle'] as String,
+  gapItems:
+      (json['gapItems'] as List<dynamic>?)
+          ?.map(
+            (e) => DashboardGapItemModel.fromJson(e as Map<String, dynamic>),
+          )
+          .toList() ??
+      const <DashboardGapItemModel>[],
+  roadmap:
+      (json['roadmap'] as List<dynamic>?)
+          ?.map(
+            (e) => DashboardRoadmapModel.fromJson(e as Map<String, dynamic>),
+          )
+          .toList() ??
+      const <DashboardRoadmapModel>[],
+);
+
+Map<String, dynamic> _$DashboardEvaluationModelToJson(
+  _DashboardEvaluationModel instance,
+) => <String, dynamic>{
+  'proposedEmi': instance.proposedEmi,
+  'totalObligation': instance.totalObligation,
+  'foir': instance.foir,
+  'loanReadyScore': instance.loanReadyScore,
+  'scoreBand': _$DashboardScoreBandEnumMap[instance.scoreBand]!,
+  'scoreTitle': instance.scoreTitle,
+  'gapItems': instance.gapItems,
+  'roadmap': instance.roadmap,
+};
+
+const _$DashboardScoreBandEnumMap = {
+  DashboardScoreBand.qualified: 'qualified',
+  DashboardScoreBand.borderline: 'borderline',
+  DashboardScoreBand.needsImprovement: 'needsImprovement',
+};
+
+_DashboardGapItemModel _$DashboardGapItemModelFromJson(
+  Map<String, dynamic> json,
+) => _DashboardGapItemModel(
+  title: json['title'] as String,
+  currentValue: json['currentValue'] as String,
+  targetValue: json['targetValue'] as String,
+  suggestion: json['suggestion'] as String,
+);
+
+Map<String, dynamic> _$DashboardGapItemModelToJson(
+  _DashboardGapItemModel instance,
+) => <String, dynamic>{
+  'title': instance.title,
+  'currentValue': instance.currentValue,
+  'targetValue': instance.targetValue,
+  'suggestion': instance.suggestion,
 };
 
 _DashboardProfileModel _$DashboardProfileModelFromJson(

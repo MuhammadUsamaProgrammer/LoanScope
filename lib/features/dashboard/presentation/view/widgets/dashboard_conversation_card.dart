@@ -34,7 +34,7 @@ class DashboardConversationCard extends StatelessWidget {
               const SizedBox(width: 10),
               const Expanded(
                 child: InterText(
-                  'Conversation Flow (No Boring Forms)',
+                  'Conversation With AI',
                   size: 16,
                   fontWeight: FontWeight.w700,
                 ),
@@ -52,13 +52,13 @@ class DashboardConversationCard extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Icon(
-                      Icons.mic_none,
+                      Icons.assistant,
                       size: 14,
                       color: AppColors.color10B981,
                     ),
                     SizedBox(width: 4),
                     InterText(
-                      'Voice-ready',
+                      'Assistant',
                       size: 11,
                       color: AppColors.color10B981,
                       fontWeight: FontWeight.w600,
@@ -89,9 +89,21 @@ class DashboardConversationCard extends StatelessWidget {
             width: double.infinity,
             child: ElevatedButton.icon(
               onPressed: onStartIntake,
-              icon: const Icon(Icons.auto_awesome_outlined, size: 18),
-              label: const Text('Start Real AI Intake'),
+
+              icon: const Icon(
+                Icons.auto_awesome_outlined,
+                size: 18,
+                color: AppColors.white,
+              ),
+              label: const InterText(
+                'Start Real AI Intake',
+                color: AppColors.white,
+              ),
               style: ElevatedButton.styleFrom(
+                foregroundColor: AppColors.primary,
+                // overlayColor: AppColors.primary.withOpacity(0.1),
+                surfaceTintColor: AppColors.primary,
+                backgroundColor: AppColors.color3182CE,
                 minimumSize: const Size.fromHeight(44),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),

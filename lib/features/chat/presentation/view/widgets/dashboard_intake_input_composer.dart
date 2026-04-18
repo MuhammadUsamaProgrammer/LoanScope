@@ -107,6 +107,7 @@ class _DashboardIntakeInputComposerState
               runSpacing: 8,
               children: question.options.map((option) {
                 return ChoiceChip(
+                  backgroundColor: AppColors.colorF5F8FB,
                   label: Text(option.label),
                   selected:
                       widget.inputValue.trim() == _formatNumeric(option.value),

@@ -26,37 +26,16 @@ final routerConfigProvider = Provider((ref) {
         name: AppRoutes.splash.name,
         builder: (context, state) => const SplashView(),
       ),
-      // Bottom Navigation Shell Routes
-      ShellRoute(
-        builder: (context, state, child) {
-          return BottomNavShell(child: child);
-        },
+      GoRoute(
+        path: AppRoutes.dashboard.path,
+        name: AppRoutes.dashboard.name,
+        builder: (context, state) => const DashboardPage(),
         routes: [
-          GoRoute(
-            path: AppRoutes.dashboard.path,
-            name: AppRoutes.dashboard.name,
-            builder: (context, state) => const DashboardPage(),
-          ),
           GoRoute(
             path: AppRoutes.dashboardIntake.path,
             name: AppRoutes.dashboardIntake.name,
             builder: (context, state) => const DashboardIntakePage(),
           ),
-          // GoRoute(
-          //   path: AppRoutes.appointments.path,
-          //   name: AppRoutes.appointments.name,
-          //   builder: (context, state) => const AppointmentsPage(),
-          //   routes: [
-          //     GoRoute(
-          //       parentNavigatorKey: navigatorKey,
-          //       path: AppRoutes.clientProfile.path,
-          //       name: AppRoutes.clientProfile.name,
-          //       builder: (context, state) {
-          //         return ClientProfilePage(clientId: clientId);
-          //       },
-          //     ),
-          //   ],
-          // ),
         ],
       ),
     ],

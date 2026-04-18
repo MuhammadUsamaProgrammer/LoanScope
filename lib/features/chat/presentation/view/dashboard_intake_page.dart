@@ -17,70 +17,80 @@ class DashboardIntakePage extends ConsumerWidget {
         ? intakeState.questions.length
         : intakeState.currentQuestionIndex + 1;
 
-    return Container(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [AppColors.colorF6F8FA, AppColors.white],
-        ),
-      ),
-      child: SafeArea(
-        bottom: false,
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(16, 90, 16, 102),
-          child: Column(
-            children: [
-              DashboardIntakeHeader(
-                currentStep: currentStep,
-                totalSteps: intakeState.questions.length,
-                isCompleted: intakeState.isCompleted,
+    return Scaffold(
+      backgroundColor: AppColors.scaffoldBg,
+      body: Stack(
+        children: [
+          Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [AppColors.colorF6F8FA, AppColors.white],
               ),
-              const SizedBox(height: 12),
-              Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: AppColors.white,
-                    borderRadius: BorderRadius.circular(18),
-                    border: Border.all(color: AppColors.whiteF2),
-                  ),
-                  child: ListView.separated(
-                    padding: const EdgeInsets.all(14),
-                    itemCount:
-                        intakeState.messages.length +
-                        (intakeState.generatedEvaluation == null ? 0 : 1),
-                    separatorBuilder: (_, _) => const SizedBox(height: 10),
-                    itemBuilder: (context, index) {
-                      if (index < intakeState.messages.length) {
-                        return DashboardIntakeMessageBubble(
-                          message: intakeState.messages[index],
-                        );
-                      }
+            ),
+            child: SafeArea(
+              bottom: false,
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(16, 70, 16, 16),
+                child: Column(
+                  children: [
+                    DashboardIntakeHeader(
+                      currentStep: currentStep,
+                      totalSteps: intakeState.questions.length,
+                      isCompleted: intakeState.isCompleted,
+                    ),
+                    const SizedBox(height: 12),
+                    Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: AppColors.white,
+                          borderRadius: BorderRadius.circular(18),
+                          border: Border.all(color: AppColors.whiteF2),
+                        ),
+                        child: ListView.separated(
+                          padding: const EdgeInsets.all(14),
+                          itemCount:
+                              intakeState.messages.length +
+                              (intakeState.generatedEvaluation == null ? 0 : 1),
+                          separatorBuilder: (_, _) =>
+                              const SizedBox(height: 10),
+                          itemBuilder: (context, index) {
+                            if (index < intakeState.messages.length) {
+                              return DashboardIntakeMessageBubble(
+                                message: intakeState.messages[index],
+                              );
+                            }
 
-                      final evaluation = intakeState.generatedEvaluation;
-                      if (evaluation == null) {
-                        return const SizedBox.shrink();
-                      }
+                            final evaluation = intakeState.generatedEvaluation;
+                            if (evaluation == null) {
+                              return const SizedBox.shrink();
+                            }
 
-                      return _IntakeSummaryCard(evaluation: evaluation);
-                    },
-                  ),
+                            return _IntakeSummaryCard(evaluation: evaluation);
+                          },
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    DashboardIntakeInputComposer(
+                      question: currentQuestion,
+                      inputValue: intakeState.currentInputValue,
+                      validationError: intakeState.validationError,
+                      isCompleted: intakeState.isCompleted,
+                      onInputChanged: intakeNotifier.updateInput,
+                      onSubmit: intakeNotifier.submitAnswer,
+                      onOptionSelected: intakeNotifier.chooseOption,
+                      onRestart: intakeNotifier.restart,
+                    ),
+                  ],
                 ),
               ),
-              const SizedBox(height: 12),
-              DashboardIntakeInputComposer(
-                question: currentQuestion,
-                inputValue: intakeState.currentInputValue,
-                validationError: intakeState.validationError,
-                isCompleted: intakeState.isCompleted,
-                onInputChanged: intakeNotifier.updateInput,
-                onSubmit: intakeNotifier.submitAnswer,
-                onOptionSelected: intakeNotifier.chooseOption,
-                onRestart: intakeNotifier.restart,
-              ),
-            ],
+            ),
           ),
-        ),
+
+          SizedBox(height: 100, child: ChatBar(context)),
+        ],
       ),
     );
   }
